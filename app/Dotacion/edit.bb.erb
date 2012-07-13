@@ -1,0 +1,59 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :show, :id => @dotacion.object %>
+    <h1>Edit <%= @dotacion.contrato_id%></h1>
+    <%= link_to "Delete", :action => :delete, :id => @dotacion.object %>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @dotacion.object %>"/>
+      <table>
+          
+          <tr>
+              <td class="itemLabel">Contrato: </td>
+              <td class="itemValue"><input type="text" name="dotacion[contrato_id]" value="<%= @dotacion.contrato_id %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Fecha: </td>
+              <td class="itemValue"><input type="text" name="dotacion[fecha]" value="<%= @dotacion.fecha %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Empleados: </td>
+              <td class="itemValue"><input type="text" name="dotacion[empleados]" value="<%= @dotacion.empleados %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Recategorizacion: </td>
+              <td class="itemValue"><input type="text" name="dotacion[recategorizacion]" value="<%= @dotacion.recategorizacion %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Gestion dotacional: </td>
+              <td class="itemValue"><input type="text" name="dotacion[gestion_dotacional]" value="<%= @dotacion.gestion_dotacional %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Nuevos ingresos egresos: </td>
+              <td class="itemValue"><input type="text" name="dotacion[nuevos_ingresos_egresos]" value="<%= @dotacion.nuevos_ingresos_egresos %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Created at: </td>
+              <td class="itemValue"><input type="text" name="dotacion[created_at]" value="<%= @dotacion.created_at %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Modified at: </td>
+              <td class="itemValue"><input type="text" name="dotacion[modified_at]" value="<%= @dotacion.modified_at %>"/></td>
+          </tr>
+          
+      </table>
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

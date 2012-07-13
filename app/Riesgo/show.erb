@@ -1,0 +1,42 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @riesgo.nemo %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @riesgo.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+  
+    <div class="prob-impacto-container">
+        <div class="prob-container">
+          <div class="prob">
+            Probabilidad <span class="nivel fuente-gris nivel-left">alta<span class="cuadro rojo"></span></span>
+          </div>
+        </div>
+        <div class="impacto-container">
+          <div class="impacto">
+            Impacto <span class="nivel fuente-gris nivel-right">alto<span class="cuadro rojo"></span></span>
+          </div>
+        </div>
+    </div>
+    
+    <div class="descripcion-container fuente-gris">
+        <%= @riesgo.descripcion %>
+    </div>
+    
+    <div class="planes-cont-container">
+      <header><a href="<%= url_for :controller => :PlanContingencia, :action => :new, :query => {:riesgo_id => @riesgo.object} %>">Planes de contingencia</a></header>
+      <% @planes_contingencia.each do |plan_contingencia| %>
+        <p class="fuente-gris"><%= plan_contingencia.descripcion %></p>
+      <% end %> 
+    </div>
+     
+  </div>
+  
+
+</div>

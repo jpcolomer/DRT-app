@@ -1,0 +1,55 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @dotacion.contrato_id %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @dotacion.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">ContratoId</td>
+        <td class="itemValue"><%= @dotacion.contrato_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Fecha</td>
+        <td class="itemValue"><%= @dotacion.fecha%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Empleados</td>
+        <td class="itemValue"><%= @dotacion.empleados%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Recategorizacion</td>
+        <td class="itemValue"><%= @dotacion.recategorizacion%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">GestionDotacional</td>
+        <td class="itemValue"><%= @dotacion.gestion_dotacional%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">NuevosIngresosEgresos</td>
+        <td class="itemValue"><%= @dotacion.nuevos_ingresos_egresos%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">CreatedAt</td>
+        <td class="itemValue"><%= @dotacion.created_at%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ModifiedAt</td>
+        <td class="itemValue"><%= @dotacion.modified_at%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

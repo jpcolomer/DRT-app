@@ -1,0 +1,29 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @contrato.empresa_id %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @contrato.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">EmpresaId</div>
+            <div class="itemValue"><%= @contrato.empresa_id %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">AreaId</div>
+            <div class="itemValue"><%= @contrato.area_id %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

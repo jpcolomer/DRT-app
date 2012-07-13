@@ -1,0 +1,40 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @riesgo.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @riesgo.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="riesgo[nemo]" class="fieldLabel">Nemo</label>
+            <input type="text" id="riesgo[nemo]" name="riesgo[nemo]" <%= placeholder("Nemo") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="riesgo[probabilidad]" class="fieldLabel">Probabilidad</label>
+            <input type="text" id="riesgo[probabilidad]" name="riesgo[probabilidad]" <%= placeholder("Probabilidad") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="riesgo[impacto]" class="fieldLabel">Impacto</label>
+            <input type="text" id="riesgo[impacto]" name="riesgo[impacto]" <%= placeholder("Impacto") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="riesgo[descripcion]" class="fieldLabel">Descripcion</label>
+            <input type="text" id="riesgo[descripcion]" name="riesgo[descripcion]" <%= placeholder("Descripcion") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

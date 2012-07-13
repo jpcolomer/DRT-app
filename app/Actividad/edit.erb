@@ -1,0 +1,46 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @actividad.nombre %></h1>
+    <a href="<%= url_for :action => :show, :id => @actividad.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @actividad.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @actividad.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="actividad[nombre]" class="fieldLabel">Nombre</label>
+            <input type="text" id="actividad[nombre]" name="actividad[nombre]" value="<%= @actividad.nombre %>" <%= placeholder( "Nombre" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="actividad[responsable]" class="fieldLabel">Responsable</label>
+            <input type="text" id="actividad[responsable]" name="actividad[responsable]" value="<%= @actividad.responsable %>" <%= placeholder( "Responsable" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="actividad[avance]" class="fieldLabel">Avance</label>
+            <input type="text" id="actividad[avance]" name="actividad[avance]" value="<%= @actividad.avance %>" <%= placeholder( "Avance" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="actividad[fecha_inicio]" class="fieldLabel">Fecha inicio</label>
+            <input type="text" id="actividad[fecha_inicio]" name="actividad[fecha_inicio]" value="<%= @actividad.fecha_inicio %>" <%= placeholder( "Fecha inicio" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="actividad[fecha_fin]" class="fieldLabel">Fecha fin</label>
+            <input type="text" id="actividad[fecha_fin]" name="actividad[fecha_fin]" value="<%= @actividad.fecha_fin %>" <%= placeholder( "Fecha fin" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

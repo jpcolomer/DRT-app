@@ -1,0 +1,39 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :show, :id => @iniciativa.object %>
+    <h1>Edit <%= @iniciativa.contrato_id%></h1>
+    <%= link_to "Delete", :action => :delete, :id => @iniciativa.object %>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @iniciativa.object %>"/>
+      <table>
+          
+          <tr>
+              <td class="itemLabel">Contrato: </td>
+              <td class="itemValue"><input type="text" name="iniciativa[contrato_id]" value="<%= @iniciativa.contrato_id %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Compromiso: </td>
+              <td class="itemValue"><input type="text" name="iniciativa[compromiso]" value="<%= @iniciativa.compromiso %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Created at: </td>
+              <td class="itemValue"><input type="text" name="iniciativa[created_at]" value="<%= @iniciativa.created_at %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Modified at: </td>
+              <td class="itemValue"><input type="text" name="iniciativa[modified_at]" value="<%= @iniciativa.modified_at %>"/></td>
+          </tr>
+          
+      </table>
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

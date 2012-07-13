@@ -1,0 +1,44 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @actividad.nombre %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @actividad.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">Nombre</div>
+            <div class="itemValue"><%= @actividad.nombre %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Responsable</div>
+            <div class="itemValue"><%= @actividad.responsable %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Avance</div>
+            <div class="itemValue"><%= @actividad.avance %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">FechaInicio</div>
+            <div class="itemValue"><%= @actividad.fecha_inicio %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">FechaFin</div>
+            <div class="itemValue"><%= @actividad.fecha_fin %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

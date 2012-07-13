@@ -1,0 +1,59 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @dotacion.contrato_id %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @dotacion.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">ContratoId</div>
+            <div class="itemValue"><%= @dotacion.contrato_id %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Fecha</div>
+            <div class="itemValue"><%= @dotacion.fecha %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Empleados</div>
+            <div class="itemValue"><%= @dotacion.empleados %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Recategorizacion</div>
+            <div class="itemValue"><%= @dotacion.recategorizacion %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">GestionDotacional</div>
+            <div class="itemValue"><%= @dotacion.gestion_dotacional %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">NuevosIngresosEgresos</div>
+            <div class="itemValue"><%= @dotacion.nuevos_ingresos_egresos %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">CreatedAt</div>
+            <div class="itemValue"><%= @dotacion.created_at %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">ModifiedAt</div>
+            <div class="itemValue"><%= @dotacion.modified_at %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

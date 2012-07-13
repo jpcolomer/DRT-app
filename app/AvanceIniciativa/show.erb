@@ -1,0 +1,39 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @avance_iniciativa.iniciativa_id %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @avance_iniciativa.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">IniciativaId</div>
+            <div class="itemValue"><%= @avance_iniciativa.iniciativa_id %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Avance</div>
+            <div class="itemValue"><%= @avance_iniciativa.avance %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">CreatedAt</div>
+            <div class="itemValue"><%= @avance_iniciativa.created_at %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">ModifiedAt</div>
+            <div class="itemValue"><%= @avance_iniciativa.modified_at %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

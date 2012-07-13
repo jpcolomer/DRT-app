@@ -1,0 +1,29 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @plancontingencia.riesgo_id %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @plancontingencia.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">RiesgoId</div>
+            <div class="itemValue"><%= @plancontingencia.riesgo_id %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Descripcion</div>
+            <div class="itemValue"><%= @plancontingencia.descripcion %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>
