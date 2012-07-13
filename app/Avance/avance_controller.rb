@@ -21,13 +21,7 @@ class AvanceController < Rho::RhoController
   
   def area
     @area = Area.find(:first)
-    @empresa = Empresa.find(:first)
-    vars = {
-      "empresa_id" => @empresa.object,
-      "area_id" => @area.object
-    }
-    @contrato = Contrato.create(vars)
-    @contratos = Contrato.find(:all)
+    @contratos = @area.get_contratos
     @dotaciones = Dotacion.find(:all)
   end
   

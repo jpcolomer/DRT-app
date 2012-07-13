@@ -41,8 +41,8 @@ class AppApplication < Rho::RhoApplication
       }
       @area2 = Area.create(vars)
     end
-#    @contratos = Contacto.find(:all)
-#    if !@contratos && @contratos.empty?
+    @contratos = Contrato.find(:all)
+    if @contratos && @contratos.empty?
       vars = {
         "empresa_id" => @empresa1.object,
         "area_id" => @area1.object
@@ -53,7 +53,7 @@ class AppApplication < Rho::RhoApplication
         "area_id" => @area2.object
       }
       @contrato2 = Contrato.create(vars)
-#    end
+    end
     @dotaciones = Dotacion.find(:all)
     if @dotaciones && @dotaciones.empty?
       vars = {

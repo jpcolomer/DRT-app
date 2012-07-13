@@ -8,4 +8,12 @@ class Empresa
   # enable :sync
 
   #add model specifc code here
+  def get_contratos
+    Contrato.find(
+      :all, 
+      :conditions => {
+        'empresa_id' => self.object
+      }
+    )
+  end
 end
