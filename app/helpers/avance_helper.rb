@@ -1,3 +1,4 @@
+require 'date'
 module AvanceHelper
   
   def get_contratos
@@ -30,7 +31,7 @@ module AvanceHelper
   end
   
   def get_dotacion(fecha)
-    fecha = fecha.strftime('%d-%m-%Y')
+    fecha_tmp = fecha.strftime('%d-%m-%Y')
     dotacion = Dotacion.find(
       :all,
       :conditions => {
@@ -41,10 +42,10 @@ module AvanceHelper
         {
           :name => "fecha",
           :op => "LIKE"
-        } => fecha
+        } => fecha_tmp
       } 
     )
-    dotacion.empleados.to_i
+    dotacion.map{|x| x.empleados.to_i}.reduce(:+)
   end
   
   def get_dotacion_base
@@ -60,7 +61,7 @@ module AvanceHelper
     gestion_dotacional = 0
     nuevos_ingresos_egresos = 0
     get_dotaciones.each do |dotacion|
-      if x.get_date <= fecha
+      if dotacion.get_date <= fecha
         recategorizacion += dotacion.recategorizacion.to_i
         gestion_dotacional += dotacion.gestion_dotacional.to_i
         nuevos_ingresos_egresos += dotacion.nuevos_ingresos_egresos.to_i
@@ -71,7 +72,7 @@ module AvanceHelper
   
   def get_dotaciones_efectos
     dotaciones = get_dotaciones
-    fechas = dotaciones.map{|x| x.get_date}.uniq
+    fechas = dotaciones.map{|x| x.get_date}
     fecha_base = fechas.min
     fecha_ultima = fechas.max
     dotacion_base = dotaciones.select{|x| x.get_date === fecha_base}.map{|x| x.empleados.to_i}.reduce(:+)
@@ -81,7 +82,7 @@ module AvanceHelper
     nuevos_ingresos_egresos = 0
     
     dotaciones.each do |dotacion|
-      if x.get_date <= fecha
+      if dotacion.get_date <= fecha_ultima
         recategorizacion += dotacion.recategorizacion.to_i
         gestion_dotacional += dotacion.gestion_dotacional.to_i
         nuevos_ingresos_egresos += dotacion.nuevos_ingresos_egresos.to_i

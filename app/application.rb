@@ -60,9 +60,9 @@ class AppApplication < Rho::RhoApplication
         "contrato_id" => @contrato1.object,
         "fecha" => "01-01-2012",
         "empleados" => "30",
-        "recategorizacion" => "1",
-        "gestion_dotacional" => "2",
-        "nuevos_ingresos_egresos" => "1"
+        "recategorizacion" => "0",
+        "gestion_dotacional" => "0",
+        "nuevos_ingresos_egresos" => "0"
       }
       @dotacion1 = Dotacion.create(vars)
       vars = {

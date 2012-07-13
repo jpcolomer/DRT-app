@@ -21,8 +21,15 @@ class AvanceController < Rho::RhoController
   
   def area
     @area = Area.find(:first)
-    @contratos = @area.get_contratos
-    @dotaciones = Dotacion.find(:all)
+    @fecha_base = @area.get_fecha_base
+    
+   
+    dotaciones = @area.get_dotaciones
+    fechas = dotaciones.map{|x| x.get_date}
+    fecha_base = fechas.min
+    fecha_ultima = fechas.max
+    @dotacion_efectos = @area.get_dotaciones_efectos
+
   end
   
   # GET /Avance/{1}
