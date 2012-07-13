@@ -1,0 +1,39 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :show, :id => @avance_iniciativa.object %>
+    <h1>Edit <%= @avance_iniciativa.iniciativa_id%></h1>
+    <%= link_to "Delete", :action => :delete, :id => @avance_iniciativa.object %>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @avance_iniciativa.object %>"/>
+      <table>
+          
+          <tr>
+              <td class="itemLabel">Iniciativa: </td>
+              <td class="itemValue"><input type="text" name="avance_iniciativa[iniciativa_id]" value="<%= @avance_iniciativa.iniciativa_id %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Avance: </td>
+              <td class="itemValue"><input type="text" name="avance_iniciativa[avance]" value="<%= @avance_iniciativa.avance %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Created at: </td>
+              <td class="itemValue"><input type="text" name="avance_iniciativa[created_at]" value="<%= @avance_iniciativa.created_at %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Modified at: </td>
+              <td class="itemValue"><input type="text" name="avance_iniciativa[modified_at]" value="<%= @avance_iniciativa.modified_at %>"/></td>
+          </tr>
+          
+      </table>
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

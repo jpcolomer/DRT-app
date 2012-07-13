@@ -1,0 +1,40 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @iniciativa.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @iniciativa.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="iniciativa[contrato_id]" class="fieldLabel">Contrato</label>
+            <input type="text" id="iniciativa[contrato_id]" name="iniciativa[contrato_id]" <%= placeholder("Contrato") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="iniciativa[compromiso]" class="fieldLabel">Compromiso</label>
+            <input type="text" id="iniciativa[compromiso]" name="iniciativa[compromiso]" <%= placeholder("Compromiso") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="iniciativa[created_at]" class="fieldLabel">Created at</label>
+            <input type="text" id="iniciativa[created_at]" name="iniciativa[created_at]" <%= placeholder("Created at") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="iniciativa[modified_at]" class="fieldLabel">Modified at</label>
+            <input type="text" id="iniciativa[modified_at]" name="iniciativa[modified_at]" <%= placeholder("Modified at") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @avance_iniciativa.iniciativa_id %></h1>
+    <a href="<%= url_for :action => :show, :id => @avance_iniciativa.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @avance_iniciativa.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @avance_iniciativa.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="avance_iniciativa[iniciativa_id]" class="fieldLabel">Iniciativa</label>
+            <input type="text" id="avance_iniciativa[iniciativa_id]" name="avance_iniciativa[iniciativa_id]" value="<%= @avance_iniciativa.iniciativa_id %>" <%= placeholder( "Iniciativa" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="avance_iniciativa[avance]" class="fieldLabel">Avance</label>
+            <input type="text" id="avance_iniciativa[avance]" name="avance_iniciativa[avance]" value="<%= @avance_iniciativa.avance %>" <%= placeholder( "Avance" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="avance_iniciativa[created_at]" class="fieldLabel">Created at</label>
+            <input type="text" id="avance_iniciativa[created_at]" name="avance_iniciativa[created_at]" value="<%= @avance_iniciativa.created_at %>" <%= placeholder( "Created at" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="avance_iniciativa[modified_at]" class="fieldLabel">Modified at</label>
+            <input type="text" id="avance_iniciativa[modified_at]" name="avance_iniciativa[modified_at]" value="<%= @avance_iniciativa.modified_at %>" <%= placeholder( "Modified at" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

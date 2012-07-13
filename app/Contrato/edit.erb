@@ -1,0 +1,31 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @contrato.empresa_id %></h1>
+    <a href="<%= url_for :action => :show, :id => @contrato.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @contrato.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @contrato.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="contrato[empresa_id]" class="fieldLabel">Empresa</label>
+            <input type="text" id="contrato[empresa_id]" name="contrato[empresa_id]" value="<%= @contrato.empresa_id %>" <%= placeholder( "Empresa" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="contrato[area_id]" class="fieldLabel">Area</label>
+            <input type="text" id="contrato[area_id]" name="contrato[area_id]" value="<%= @contrato.area_id %>" <%= placeholder( "Area" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

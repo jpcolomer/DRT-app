@@ -1,0 +1,19 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Actividades <%= @mes %></h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+
+  <div data-role="content">
+  
+    <ul data-role="listview">
+      <% @semanas.each do |semana| %>
+        <li class="fuente-li"><a href="<%= url_for :action => :mostrar_semana, :query => {:semana => semana.to_json} %>"><div>Semana #<%= semana[:nro_semana] %></div><div class="fuente-gris"><%= semana[:nro_actividades] %> <%= semana[:nro_actividades] > 1 ? 'actividades' : 'actividad' %></div></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @riesgo.nemo %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @riesgo.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">Nemo</div>
+            <div class="itemValue"><%= @riesgo.nemo %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Probabilidad</div>
+            <div class="itemValue"><%= @riesgo.probabilidad %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Impacto</div>
+            <div class="itemValue"><%= @riesgo.impacto %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Descripcion</div>
+            <div class="itemValue"><%= @riesgo.descripcion %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

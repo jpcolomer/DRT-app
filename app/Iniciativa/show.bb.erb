@@ -1,0 +1,35 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @iniciativa.contrato_id %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @iniciativa.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">ContratoId</td>
+        <td class="itemValue"><%= @iniciativa.contrato_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Compromiso</td>
+        <td class="itemValue"><%= @iniciativa.compromiso%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">CreatedAt</td>
+        <td class="itemValue"><%= @iniciativa.created_at%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ModifiedAt</td>
+        <td class="itemValue"><%= @iniciativa.modified_at%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

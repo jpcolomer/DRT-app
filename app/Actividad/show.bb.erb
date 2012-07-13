@@ -1,0 +1,40 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @actividad.nombre %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @actividad.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Nombre</td>
+        <td class="itemValue"><%= @actividad.nombre%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Responsable</td>
+        <td class="itemValue"><%= @actividad.responsable%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Avance</td>
+        <td class="itemValue"><%= @actividad.avance%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">FechaInicio</td>
+        <td class="itemValue"><%= @actividad.fecha_inicio%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">FechaFin</td>
+        <td class="itemValue"><%= @actividad.fecha_fin%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

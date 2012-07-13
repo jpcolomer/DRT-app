@@ -1,0 +1,42 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Actividades <%= @mes %></h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+      <div class="header-sub-title">
+        <div class="fuente-gris">
+          Semana <%= @semana['nro_semana'] %>
+        </div>
+        <% if @semana['mes'].to_i <= Date.today.month %>
+        <div class="header-avance">
+          <%= @semana['avance'].to_i %>%
+        </div>
+      </div>
+    <div class="rojo cuadro cuadro-header"></div>
+        <% else %>
+      </div>
+        <% end %>
+  </div>
+
+  <div data-role="content">        
+    <% @semana['actividades'].each do |actividad| %>
+      <div class="elemento-lista-container margin-top-0">
+        <div class="elemento-lista-left-container">
+          <div><%= actividad['nombre'] %></div>
+          <div class="fuente-gris elemento-lista-left-container-sub"><%= actividad['responsable'] %></div>
+        </div>
+        <% if @semana['mes'].to_i <= Date.today.month %>
+          <div class="elemento-lista-avance avance-actividad">
+            <span class="barra-avance-container">
+              <span class="barra-avance" style="width:<%= actividad['avance'] %>%"></span>
+            </span>
+            <%= actividad['avance'] %>%
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

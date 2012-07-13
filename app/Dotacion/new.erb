@@ -1,0 +1,60 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @dotacion.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @dotacion.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[contrato_id]" class="fieldLabel">Contrato</label>
+            <input type="text" id="dotacion[contrato_id]" name="dotacion[contrato_id]" <%= placeholder("Contrato") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[fecha]" class="fieldLabel">Fecha</label>
+            <input type="text" id="dotacion[fecha]" name="dotacion[fecha]" <%= placeholder("Fecha") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[empleados]" class="fieldLabel">Empleados</label>
+            <input type="text" id="dotacion[empleados]" name="dotacion[empleados]" <%= placeholder("Empleados") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[recategorizacion]" class="fieldLabel">Recategorizacion</label>
+            <input type="text" id="dotacion[recategorizacion]" name="dotacion[recategorizacion]" <%= placeholder("Recategorizacion") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[gestion_dotacional]" class="fieldLabel">Gestion dotacional</label>
+            <input type="text" id="dotacion[gestion_dotacional]" name="dotacion[gestion_dotacional]" <%= placeholder("Gestion dotacional") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[nuevos_ingresos_egresos]" class="fieldLabel">Nuevos ingresos egresos</label>
+            <input type="text" id="dotacion[nuevos_ingresos_egresos]" name="dotacion[nuevos_ingresos_egresos]" <%= placeholder("Nuevos ingresos egresos") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[created_at]" class="fieldLabel">Created at</label>
+            <input type="text" id="dotacion[created_at]" name="dotacion[created_at]" <%= placeholder("Created at") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="dotacion[modified_at]" class="fieldLabel">Modified at</label>
+            <input type="text" id="dotacion[modified_at]" name="dotacion[modified_at]" <%= placeholder("Modified at") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>
