@@ -20,10 +20,15 @@ class AvanceController < Rho::RhoController
   end
   
   def area
-    @area = Area.find(@params['id']) || Area.find(:all).first
-    if @area
-      @datos_dotacion_efecto = @area.get_dotaciones_efectos
-    end 
+    @area = Area.find(:first)
+    @empresa = Empresa.find(:first)
+    vars = {
+      "empresa_id" => @empresa.object,
+      "area_id" => @area.object
+    }
+    @contrato = Contrato.create(vars)
+    @contratos = Contrato.find(:all)
+    @dotaciones = Dotacion.find(:all)
   end
   
   # GET /Avance/{1}
