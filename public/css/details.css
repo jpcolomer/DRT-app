@@ -455,3 +455,71 @@ ul.lista-riesgos.ui-listview{
 	width: 15px;
 	height: 15px;
 }
+
+.right-li{
+	position: absolute;
+	right: 40px;
+	font-weight: normal;
+	height: 50px;
+	top: 50%;
+	margin-top: -10px;
+}
+
+.fix-ul-top-margin-border{
+	margin-top: 15px;
+	border-top: 1px solid #333;
+}
+
+.fix-ul-top-innerdiv-margin{
+	margin-top: -10px;
+}
+
+.dotacion-efectos-container{
+	padding: 0 15px;
+	border-bottom: 1px solid #333;
+}
+
+.dotacion-efecto{
+	margin: 10px 0;
+}
+
+.efecto{
+	padding-left: 0.3em;
+}
+
+.dato{
+	position: absolute;
+	right: 48px;
+}
+
+.cuadro-efecto{
+	font-size: 85%;
+	color: white;
+	text-shadow: none;
+	text-align: center;
+	position: absolute;
+	right: 5px;
+	width: 36px;
+	height: 18px;
+	padding-top: 2px;
+	margin-top: -2px;
+}
+
+.vertical-middle-container{
+	position: relative;
+	min-height: 50px;
+}
+
+.fix-padding{
+	padding: 0 15px;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #333;
+}
+.vertical-middle{
+	position: absolute;
+	height: 50px;
+	top: 50%;
+	margin-top: -25px;
+}

@@ -21,15 +21,20 @@ class AvanceController < Rho::RhoController
   
   def area
     @area = Area.find(:first)
-    @fecha_base = @area.get_fecha_base
-    
-   
-    dotaciones = @area.get_dotaciones
-    fechas = dotaciones.map{|x| x.get_date}
-    fecha_base = fechas.min
-    fecha_ultima = fechas.max
     @dotacion_efectos = @area.get_dotaciones_efectos
-
+    @fecha_base = Date.strptime(@dotacion_efectos[:fecha_base],'%d-%m-%Y').strftime('%b %Y')
+    @p_recat = (@dotacion_efectos[:recategorizacion].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
+    @p_g_dot = (@dotacion_efectos[:gestion_dotacional].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
+    @p_ingr_egre = (@dotacion_efectos[:nuevos_ingresos_egresos].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
+    @p_avance = ((@dotacion_efectos[:dotacion_actual].to_f/@dotacion_efectos[:dotacion_base].to_f - 1) * 100).to_i
+  end
+  
+  def get_color_cuadro(valor)
+    if valor <= 0
+      return "verde"
+    else
+      return "rojo"
+    end
   end
   
   # GET /Avance/{1}

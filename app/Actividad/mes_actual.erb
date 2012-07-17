@@ -13,7 +13,7 @@
       <% @semanas.each do |semana| %> 
         <a href="<%= url_for :action => :mostrar_semana, :query => {:semana => semana.to_json} %>">
           <div class="elemento-lista-container">        
-            <div class="elemento-lista-left-container"><div>Semana #<%= semana[:nro_semana] %></div><div class="fuente-gris elemento-lista-left-container-sub"><%= semana[:nro_actividades] %> <%= semana[:nro_actividades] > 1 ? 'actividades' : 'actividad' %></div></div>
+            <div class="elemento-lista-left-container"><div>Semana <%= semana[:nro_semana] %></div><div class="fuente-gris elemento-lista-left-container-sub"><%= semana[:nro_actividades] %> <%= semana[:nro_actividades] > 1 ? 'actividades' : 'actividad' %></div></div>
             <div class="elemento-lista-avance"><%= semana[:avance].to_i %>% <span class="cuadro cuadro-semana rojo"></span></div>
           </div>
         </a> 

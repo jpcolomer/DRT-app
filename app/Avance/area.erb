@@ -1,7 +1,7 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Avances por �rea</h1>
+    <h1>Avances por &aacute;rea</h1>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Home
     </a>
@@ -11,9 +11,30 @@
   </div>
 
   <div data-role="content">
-      <%= @area.inspect %>
-      <%= @dotacion_base %>
-      <%= @dotacion_efectos %>
+    <ul data-role="listview">
+      <li><a href="<%= url_for :action => :index %>">Area <span class="right-li fuente-gris"><%= @area.nombre %></span></a></li>
+    </ul>
+    <div class="elemento-lista-container fix-ul-top-margin-border"> 
+      <div class="elemento-lista-left-container fix-ul-top-innerdiv-margin">Tipo de datos</div>
+      <div class="right-li fuente-gris">N&deg; personas</div>
+    </div>
+    <div class="fix-margin fix-padding border-bottom">
+      <div class="dotacion-efecto">Dotaci&oacute;n base (<%= @fecha_base %>) <span class="dato"><%= @dotacion_efectos[:dotacion_base] %></span></div>
+      <div class="dotacion-efecto efecto fuente-gris">Efecto recategorizaci&oacute;n <span class="dato"><%= @dotacion_efectos[:recategorizacion] %></span><span class="<%= get_color_cuadro(@p_recat) %> cuadro-efecto"><%= @p_recat %>%</span></div>
+      <div class="dotacion-efecto efecto fuente-gris">Efecto gesti&oacute;n dotacional <span class="dato"><%= @dotacion_efectos[:gestion_dotacional] %></span><span class="<%= get_color_cuadro(@p_g_dot) %> cuadro-efecto"><%= @p_g_dot %>%</span></div>
+      <div class="dotacion-efecto efecto fuente-gris">Efecto nuevos ingresos-egresos <span class="dato"><%= @dotacion_efectos[:nuevos_ingresos_egresos] %></span><span class="<%= get_color_cuadro(@p_ingr_egre) %> cuadro-efecto"><%= @p_ingr_egre %>%</span></div>
+      <div class="dotacion-efecto">Dotaci&oacute;n actual <span class="dato"><%= @dotacion_efectos[:dotacion_actual] %></span><span class="<%= get_color_cuadro(@p_avance) %> cuadro-efecto"><%= @p_avance %>%</span></div>
+    </div>
+    <div class="fix-margin fix-padding border-bottom vertical-middle-container">
+      <div class="vertical-middle">KPI&#39;s</div>
+    </div>
+    <div class="fix-margin fix-padding border-bottom">
+      <div class="dotacion-efecto">Gesti&oacute;n dot. / Compromiso </div>
+      <div class="dotacion-efecto">Inic. realizadas / Compromiso </div>
+      <div class="dotacion-efecto">Compromiso / Dot. base </div>
+    </div>  
+    
   </div>
+  
 
 </div>

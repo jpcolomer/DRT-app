@@ -69,9 +69,9 @@ class AppApplication < Rho::RhoApplication
         "contrato_id" => @contrato1.object,
         "fecha" => "01-04-2012",
         "empleados" => "25",
-        "recategorizacion" => "2",
-        "gestion_dotacional" => "2",
-        "nuevos_ingresos_egresos" => "1"
+        "recategorizacion" => "-2",
+        "gestion_dotacional" => "-2",
+        "nuevos_ingresos_egresos" => "-1"
       }
       @dotacion2 = Dotacion.create(vars)
       vars = {
@@ -79,12 +79,22 @@ class AppApplication < Rho::RhoApplication
         "fecha" => "01-06-2012",
         "empleados" => "22",
         "recategorizacion" => "0",
-        "gestion_dotacional" => "2",
-        "nuevos_ingresos_egresos" => "1"
+        "gestion_dotacional" => "-2",
+        "nuevos_ingresos_egresos" => "-1"
       }
       @dotacion3 = Dotacion.create(vars)
     end
-    
+    @actividades = Actividad.find(:all)
+    if @actividades && @actividades.empty?
+      vars = {
+        "nombre" => "Actividad 1",
+        "responsable" => "Pedro Actividad 1",
+        "avance" => "60",
+        "fecha_inicio" => "01-07-2012",
+        "fecha_fin" => "30-07-2012"
+      }
+      Actividad.create(vars)
+    end
     
   end
   
