@@ -27,6 +27,9 @@ class AvanceController < Rho::RhoController
     @p_g_dot = (@dotacion_efectos[:gestion_dotacional].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
     @p_ingr_egre = (@dotacion_efectos[:nuevos_ingresos_egresos].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
     @p_avance = ((@dotacion_efectos[:dotacion_actual].to_f/@dotacion_efectos[:dotacion_base].to_f - 1) * 100).to_i
+    @avance_g_dot_compromiso = (@dotacion_efectos[:gestion_dotacional].to_f/@area.compromiso_reduccion.to_f*100).to_i
+    @avance_iniciativas_compromiso = (9.to_f/@area.compromiso_iniciativas.to_f*100).to_i
+    @compromiso_dot_base = (@area.compromiso_reduccion.to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
   end
   
   def get_color_cuadro(valor)

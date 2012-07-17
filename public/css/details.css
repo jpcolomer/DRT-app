@@ -481,6 +481,7 @@ ul.lista-riesgos.ui-listview{
 
 .dotacion-efecto{
 	margin: 10px 0;
+	position: relative;
 }
 
 .efecto{
@@ -489,16 +490,15 @@ ul.lista-riesgos.ui-listview{
 
 .dato{
 	position: absolute;
-	right: 48px;
+	right: 38px;
 }
 
 .cuadro-efecto{
-	font-size: 85%;
 	color: white;
 	text-shadow: none;
 	text-align: center;
 	position: absolute;
-	right: 5px;
+	right: -5px;
 	width: 36px;
 	height: 18px;
 	padding-top: 2px;
@@ -521,5 +521,33 @@ ul.lista-riesgos.ui-listview{
 	position: absolute;
 	height: 50px;
 	top: 50%;
-	margin-top: -25px;
+	margin-top: -10px;
+}
+
+.cuadro-pequeno{
+	height: 15px;
+	width: 15px;
+}
+
+.fuente-70 {
+	font-size: 70%;
+}
+
+.fuente-85{
+	font-size: 85%;
+}
+
+.fix-top-dotacion-efecto{
+	top: 3px;
+}
+
+.avance-kpi{
+	position: absolute;
+	right: 15px;
+}
+
+.razon-kpi{
+	position: absolute;
+	right: 46px;
+	top: 5px;
 }

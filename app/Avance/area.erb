@@ -20,18 +20,18 @@
     </div>
     <div class="fix-margin fix-padding border-bottom">
       <div class="dotacion-efecto">Dotaci&oacute;n base (<%= @fecha_base %>) <span class="dato"><%= @dotacion_efectos[:dotacion_base] %></span></div>
-      <div class="dotacion-efecto efecto fuente-gris">Efecto recategorizaci&oacute;n <span class="dato"><%= @dotacion_efectos[:recategorizacion] %></span><span class="<%= get_color_cuadro(@p_recat) %> cuadro-efecto"><%= @p_recat %>%</span></div>
-      <div class="dotacion-efecto efecto fuente-gris">Efecto gesti&oacute;n dotacional <span class="dato"><%= @dotacion_efectos[:gestion_dotacional] %></span><span class="<%= get_color_cuadro(@p_g_dot) %> cuadro-efecto"><%= @p_g_dot %>%</span></div>
-      <div class="dotacion-efecto efecto fuente-gris">Efecto nuevos ingresos-egresos <span class="dato"><%= @dotacion_efectos[:nuevos_ingresos_egresos] %></span><span class="<%= get_color_cuadro(@p_ingr_egre) %> cuadro-efecto"><%= @p_ingr_egre %>%</span></div>
-      <div class="dotacion-efecto">Dotaci&oacute;n actual <span class="dato"><%= @dotacion_efectos[:dotacion_actual] %></span><span class="<%= get_color_cuadro(@p_avance) %> cuadro-efecto"><%= @p_avance %>%</span></div>
+      <div class="dotacion-efecto efecto fuente-gris">Efecto recategorizaci&oacute;n <span class="dato"><%= @dotacion_efectos[:recategorizacion] %></span><span class="<%= get_color_cuadro(@p_recat) %> cuadro-efecto fuente-85"><%= @p_recat %>%</span></div>
+      <div class="dotacion-efecto efecto fuente-gris">Efecto gesti&oacute;n dotacional <span class="dato"><%= @dotacion_efectos[:gestion_dotacional] %></span><span class="<%= get_color_cuadro(@p_g_dot) %> cuadro-efecto fuente-85"><%= @p_g_dot %>%</span></div>
+      <div class="dotacion-efecto efecto fuente-gris">Efecto nuevos ingresos-egresos <span class="dato"><%= @dotacion_efectos[:nuevos_ingresos_egresos] %></span><span class="<%= get_color_cuadro(@p_ingr_egre) %> cuadro-efecto fuente-85"><%= @p_ingr_egre %>%</span></div>
+      <div class="dotacion-efecto">Dotaci&oacute;n actual <span class="dato"><%= @dotacion_efectos[:dotacion_actual] %></span><span class="<%= get_color_cuadro(@p_avance) %> cuadro-efecto fuente-85"><%= @p_avance %>%</span></div>
     </div>
     <div class="fix-margin fix-padding border-bottom vertical-middle-container">
       <div class="vertical-middle">KPI&#39;s</div>
     </div>
-    <div class="fix-margin fix-padding border-bottom">
-      <div class="dotacion-efecto">Gesti&oacute;n dot. / Compromiso </div>
-      <div class="dotacion-efecto">Inic. realizadas / Compromiso </div>
-      <div class="dotacion-efecto">Compromiso / Dot. base </div>
+    <div class="fix-margin fix-padding">
+      <div class="dotacion-efecto">Gesti&oacute;n dot. / Compromiso <span class="fuente-gris fuente-70 razon-kpi"><%= "#{@dotacion_efectos[:gestion_dotacional]} / #{@area.compromiso_reduccion}" %></span><span class="avance-kpi fuente-85 fix-top-dotacion-efecto"><%= "#{@avance_g_dot_compromiso}" %>%</span><span class="cuadro-efecto cuadro-pequeno fix-top-dotacion-efecto verde"></span></div>
+      <div class="dotacion-efecto">Inic. realizadas / Compromiso <span class="fuente-gris fuente-70 razon-kpi"><%= "#{9} / #{@area.compromiso_iniciativas}" %></span><span class="avance-kpi fuente-85 fix-top-dotacion-efecto"><%= "#{@avance_iniciativas_compromiso}" %>%</span><span class="cuadro-efecto cuadro-pequeno fix-top-dotacion-efecto verde"></span></div>
+      <div class="dotacion-efecto">Compromiso / Dot. base <span class="fuente-gris fuente-70 razon-kpi"><%= "#{@area.compromiso_reduccion} / #{@dotacion_efectos[:dotacion_base]}" %></span><span class="avance-kpi fuente-85 fix-top-dotacion-efecto"><%= "#{@compromiso_dot_base}" %>%</span><span class="cuadro-efecto cuadro-pequeno fix-top-dotacion-efecto"></span></div>
     </div>  
     
   </div>

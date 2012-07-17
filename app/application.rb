@@ -59,7 +59,7 @@ class AppApplication < Rho::RhoApplication
       vars = {
         "contrato_id" => @contrato1.object,
         "fecha" => "01-01-2012",
-        "empleados" => "30",
+        "empleados" => "3000",
         "recategorizacion" => "0",
         "gestion_dotacional" => "0",
         "nuevos_ingresos_egresos" => "0"
@@ -68,20 +68,20 @@ class AppApplication < Rho::RhoApplication
       vars = {
         "contrato_id" => @contrato1.object,
         "fecha" => "01-04-2012",
-        "empleados" => "25",
-        "recategorizacion" => "-2",
-        "gestion_dotacional" => "-2",
-        "nuevos_ingresos_egresos" => "-1"
+        "recategorizacion" => "-6",
+        "gestion_dotacional" => "-10",
+        "nuevos_ingresos_egresos" => "-15"
       }
+      vars.merge!({"empleados" => @dotacion1.empleados - vars["recategorizacion"] - vars["gestion_dotacional"] - vars["nuevos_ingresos_egresos"]})
       @dotacion2 = Dotacion.create(vars)
       vars = {
         "contrato_id" => @contrato1.object,
         "fecha" => "01-06-2012",
-        "empleados" => "22",
         "recategorizacion" => "0",
-        "gestion_dotacional" => "-2",
-        "nuevos_ingresos_egresos" => "-1"
+        "gestion_dotacional" => "-30",
+        "nuevos_ingresos_egresos" => "-10"
       }
+      vars.merge!({"empleados" => @dotacion2.empleados - vars["recategorizacion"] - vars["gestion_dotacional"] - vars["nuevos_ingresos_egresos"]})
       @dotacion3 = Dotacion.create(vars)
     end
     @actividades = Actividad.find(:all)
@@ -101,5 +101,6 @@ class AppApplication < Rho::RhoApplication
   def pluralize(word,nro)
     nro > 1 ? word + 'es' : word 
   end
+  
 
 end
