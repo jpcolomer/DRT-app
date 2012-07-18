@@ -1,9 +1,10 @@
 require 'rho/rhocontroller'
 require 'helpers/browser_helper'
+require 'helpers/general_helper'
 
 class AvanceController < Rho::RhoController
   include BrowserHelper
-
+  include GeneralHelper
   # GET /Avance
   def index
     render :back => '/app'
@@ -20,18 +21,48 @@ class AvanceController < Rho::RhoController
   end
   
   def area
-    @area = Area.find(:first)
+    
+    if @params['id']   
+      @area = Area.find(@params['id'])
+    else
+      @area = Area.find(:first)
+    end
     @dotacion_efectos = @area.get_dotaciones_efectos
+    @iniciativas_avance = @area.get_iniciativas_realizadas_avance
     @fecha_base = Date.strptime(@dotacion_efectos[:fecha_base],'%d-%m-%Y').strftime('%b %Y')
     @p_recat = (@dotacion_efectos[:recategorizacion].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
     @p_g_dot = (@dotacion_efectos[:gestion_dotacional].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
     @p_ingr_egre = (@dotacion_efectos[:nuevos_ingresos_egresos].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
     @p_avance = ((@dotacion_efectos[:dotacion_actual].to_f/@dotacion_efectos[:dotacion_base].to_f - 1) * 100).to_i
-    @avance_g_dot_compromiso = (@dotacion_efectos[:gestion_dotacional].to_f/@area.compromiso_reduccion.to_f*100).to_i
-    @avance_iniciativas_compromiso = (9.to_f/@area.compromiso_iniciativas.to_f*100).to_i
+    @avance_g_dot_compromiso = (@dotacion_efectos[:gestion_dotacional].abs.to_f/@area.compromiso_reduccion.to_f*100).to_i
+    @avance_iniciativas_compromiso = (@iniciativas_avance[:iniciativas_realizadas].abs.to_f/@area.compromiso_iniciativas.to_f*100).to_i
     @compromiso_dot_base = (@area.compromiso_reduccion.to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
   end
   
+  def lista_areas
+    @areas =  Area.find(:all)
+  end
+
+  def empresa
+    
+    if @params['id']   
+      @empresa = Empresa.find(@params['id'])
+    else
+      @empresa = Empresa.find(:first)
+    end
+    @dotacion_efectos = @empresa.get_dotaciones_efectos
+    @fecha_base = Date.strptime(@dotacion_efectos[:fecha_base],'%d-%m-%Y').strftime('%b %Y')
+    @p_recat = (@dotacion_efectos[:recategorizacion].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
+    @p_g_dot = (@dotacion_efectos[:gestion_dotacional].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
+    @p_ingr_egre = (@dotacion_efectos[:nuevos_ingresos_egresos].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
+    @p_avance = ((@dotacion_efectos[:dotacion_actual].to_f/@dotacion_efectos[:dotacion_base].to_f - 1) * 100).to_i
+  end
+  
+  def lista_empresas
+    @empresas =  Empresa.find(:all)
+  end  
+  
+    
   def get_color_cuadro(valor)
     if valor <= 0
       return "verde"

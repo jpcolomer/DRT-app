@@ -70,24 +70,65 @@ module AvanceHelper
     {:recategorizacion => recategorizacion, :gestion_dotacional => gestion_dotacional, :nuevos_ingresos_egresos => nuevos_ingresos_egresos}
   end
   
+  def get_iniciativas
+    Iniciativa.find(
+      :all,
+      :conditions => {  
+        {
+          :name => "contrato_id",
+          :op => "IN"
+        } => get_contratos.map{|x| x.object}
+      }
+    )    
+  end
+  
   def get_dotaciones_efectos
     dotaciones = get_dotaciones
-    fechas = dotaciones.map{|x| x.get_date}
-    fecha_base = fechas.min
-    fecha_ultima = fechas.max
-    dotacion_base = dotaciones.select{|x| x.get_date === fecha_base}.map{|x| x.empleados.to_i}.reduce(:+)
-    dotacion_actual = dotaciones.select{|x| x.get_date === fecha_ultima}.map{|x| x.empleados.to_i}.reduce(:+)
-    recategorizacion = 0
-    gestion_dotacional = 0
-    nuevos_ingresos_egresos = 0
-    
-    dotaciones.each do |dotacion|
-      if dotacion.get_date <= fecha_ultima
-        recategorizacion += dotacion.recategorizacion.to_i
-        gestion_dotacional += dotacion.gestion_dotacional.to_i
-        nuevos_ingresos_egresos += dotacion.nuevos_ingresos_egresos.to_i
-      end
-    end    
-    {:fecha_base => fecha_base.strftime('%d-%m-%Y'), :fecha_ultima => fecha_ultima.strftime('%d-%m-%Y'), :dotacion_base => dotacion_base, :dotacion_actual => dotacion_actual,:recategorizacion => recategorizacion, :gestion_dotacional => gestion_dotacional, :nuevos_ingresos_egresos => nuevos_ingresos_egresos}
+    unless dotaciones.empty?
+      fechas = dotaciones.map{|x| x.get_date}
+      fecha_base = fechas.min
+      fecha_ultima = fechas.max
+      dotacion_base = dotaciones.select{|x| x.get_date === fecha_base}.map{|x| x.empleados.to_i}.reduce(:+)
+      dotacion_actual = dotaciones.select{|x| x.get_date === fecha_ultima}.map{|x| x.empleados.to_i}.reduce(:+)
+      recategorizacion = 0
+      gestion_dotacional = 0
+      nuevos_ingresos_egresos = 0
+      
+      dotaciones.each do |dotacion|
+        if dotacion.get_date <= fecha_ultima
+          recategorizacion += dotacion.recategorizacion.to_i
+          gestion_dotacional += dotacion.gestion_dotacional.to_i
+          nuevos_ingresos_egresos += dotacion.nuevos_ingresos_egresos.to_i
+        end
+      end    
+      return {:fecha_base => fecha_base.strftime('%d-%m-%Y'), :fecha_ultima => fecha_ultima.strftime('%d-%m-%Y'), :dotacion_base => dotacion_base, :dotacion_actual => dotacion_actual,:recategorizacion => recategorizacion, :gestion_dotacional => gestion_dotacional, :nuevos_ingresos_egresos => nuevos_ingresos_egresos}
+    else
+      return {:fecha_base => Date.today.strftime('%d-%m-%Y'), :fecha_ultima => Date.today.strftime('%d-%m-%Y'), :dotacion_base => -100, :dotacion_actual => -100,:recategorizacion => 0, :gestion_dotacional => 0, :nuevos_ingresos_egresos => 0}
+    end
+  end
+  
+  def get_iniciativas_realizadas
+    get_iniciativas.select{|iniciativa| iniciativa.get_avance == 100}.count
+  end
+  
+  def get_iniciativas_realizadas_avance
+    iniciativas = get_iniciativas
+    unless iniciativas.empty?
+      iniciativas_realizadas = iniciativas.select{|iniciativa| iniciativa.get_avance == 100}.count
+      avance = iniciativas.map{|iniciativa| iniciativa.get_avance}.reduce(:+)
+      return {:iniciativas_realizadas => iniciativas_realizadas, :avance => avance}
+    else
+      return {:iniciativas_realizadas => 0, :avance => 0}
+    end
+  end
+  
+  
+  def get_color_from_efecto(efecto)
+    valor_divisor = 0
+    if efecto > valor_divisor
+      return "rojo"
+    else
+      return "verde"
+    end  
   end
 end

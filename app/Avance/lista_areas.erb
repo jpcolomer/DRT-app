@@ -1,0 +1,21 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1> Areas </h1>
+      <a href="<%= url_for :action => :area, :id => @params['back_id'] %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+        Atr&aacute;s
+      </a>
+
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <% @areas.each do |area| %>     
+        <li><a href="<%= url_for :action => :area, :id => area.object %>"><%= area.nombre %></a></li>
+      <% end %>
+    </ul> 
+    
+  </div>
+  
+
+</div>

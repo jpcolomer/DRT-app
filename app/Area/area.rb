@@ -9,6 +9,5 @@ class Area
 
   #add model specifc code here
    
-  
-  
+ 
 end

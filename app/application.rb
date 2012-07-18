@@ -30,13 +30,13 @@ class AppApplication < Rho::RhoApplication
     if @areas && @areas.empty?
       vars = {
         "nombre" => "Mina",
-        "compromiso_reduccion" => "30",
-        "compromiso_iniciativas" => "10"
+        "compromiso_reduccion" => "150",
+        "compromiso_iniciativas" => "20"
       }
       @area1 = Area.create(vars)
       vars = {
         "nombre" => "Planta",
-        "compromiso_reduccion" => "40",
+        "compromiso_reduccion" => "70",
         "compromiso_iniciativas" => "15"
       }
       @area2 = Area.create(vars)
@@ -52,14 +52,20 @@ class AppApplication < Rho::RhoApplication
         "empresa_id" => @empresa2.object,
         "area_id" => @area2.object
       }
+      @contrato3 = Contrato.create(vars)
+      vars = {
+        "empresa_id" => @empresa2.object,
+        "area_id" => @area1.object
+      }
       @contrato2 = Contrato.create(vars)
     end
+    
     @dotaciones = Dotacion.find(:all)
     if @dotaciones && @dotaciones.empty?
       vars = {
         "contrato_id" => @contrato1.object,
         "fecha" => "01-01-2012",
-        "empleados" => "3000",
+        "empleados" => "1500",
         "recategorizacion" => "0",
         "gestion_dotacional" => "0",
         "nuevos_ingresos_egresos" => "0"
@@ -72,7 +78,7 @@ class AppApplication < Rho::RhoApplication
         "gestion_dotacional" => "-10",
         "nuevos_ingresos_egresos" => "-15"
       }
-      vars.merge!({"empleados" => @dotacion1.empleados - vars["recategorizacion"] - vars["gestion_dotacional"] - vars["nuevos_ingresos_egresos"]})
+      vars["empleados"] = (@dotacion1.empleados.to_i + vars["recategorizacion"].to_i + vars["gestion_dotacional"].to_i + vars["nuevos_ingresos_egresos"].to_i).to_s
       @dotacion2 = Dotacion.create(vars)
       vars = {
         "contrato_id" => @contrato1.object,
@@ -81,9 +87,88 @@ class AppApplication < Rho::RhoApplication
         "gestion_dotacional" => "-30",
         "nuevos_ingresos_egresos" => "-10"
       }
-      vars.merge!({"empleados" => @dotacion2.empleados - vars["recategorizacion"] - vars["gestion_dotacional"] - vars["nuevos_ingresos_egresos"]})
+      vars["empleados"] = (@dotacion2.empleados.to_i + vars["recategorizacion"].to_i + vars["gestion_dotacional"].to_i + vars["nuevos_ingresos_egresos"].to_i).to_s
+      @dotacion3 = Dotacion.create(vars)
+      vars = {
+        "contrato_id" => @contrato2.object,
+        "fecha" => "01-01-2012",
+        "empleados" => "1600",
+        "recategorizacion" => "0",
+        "gestion_dotacional" => "0",
+        "nuevos_ingresos_egresos" => "0"
+      }
+      @dotacion1 = Dotacion.create(vars)
+      vars = {
+        "contrato_id" => @contrato2.object,
+        "fecha" => "01-04-2012",
+        "recategorizacion" => "-6",
+        "gestion_dotacional" => "-10",
+        "nuevos_ingresos_egresos" => "-15"
+      }
+      vars["empleados"] = (@dotacion1.empleados.to_i + vars["recategorizacion"].to_i + vars["gestion_dotacional"].to_i + vars["nuevos_ingresos_egresos"].to_i).to_s
+      @dotacion2 = Dotacion.create(vars)
+      vars = {
+        "contrato_id" => @contrato2.object,
+        "fecha" => "01-06-2012",
+        "recategorizacion" => "0",
+        "gestion_dotacional" => "-30",
+        "nuevos_ingresos_egresos" => "-10"
+      }
+      vars["empleados"] = (@dotacion2.empleados.to_i + vars["recategorizacion"].to_i + vars["gestion_dotacional"].to_i + vars["nuevos_ingresos_egresos"].to_i).to_s
       @dotacion3 = Dotacion.create(vars)
     end
+    
+    @iniciativas = Iniciativa.find(:all)
+    if @iniciativas && @iniciativas.empty?
+      vars = {
+        "contrato_id" => @contrato1.object,
+        "fecha" => "01-01-2012",
+        "compromiso" => "50",
+      }
+      @iniciativa1 = Iniciativa.create(vars)
+      vars = {
+        "contrato_id" => @contrato2.object,
+        "fecha" => "01-01-2012",
+        "compromiso" => "40",
+      }
+      @iniciativa2 = Iniciativa.create(vars)
+    end
+    
+    @avance_iniciativas = AvanceIniciativa.find(:all)
+    if @avance_iniciativas && @avance_iniciativas.empty?
+      vars = {
+        "iniciativa_id" => @iniciativa1.object,
+        "fecha" => "01-04-2012",
+        "valor" => "5",
+      }
+      @avance_iniciativa1 = AvanceIniciativa.create(vars)
+      vars = {
+        "iniciativa_id" => @iniciativa1.object,
+        "fecha" => "01-05-2012",
+        "valor" => "50",
+      }
+      @avance_iniciativa2 = AvanceIniciativa.create(vars)
+      vars = {
+        "iniciativa_id" => @iniciativa2.object,
+        "fecha" => "01-02-2012",
+        "valor" => "5",
+      }
+      @avance_iniciativa3 = AvanceIniciativa.create(vars)    
+      vars = {
+        "iniciativa_id" => @iniciativa2.object,
+        "fecha" => "01-04-2012",
+        "valor" => "10",
+      }
+      @avance_iniciativa3 = AvanceIniciativa.create(vars)      
+      vars = {
+        "iniciativa_id" => @iniciativa2.object,
+        "fecha" => "01-05-2012",
+        "valor" => "15",
+      }
+      @avance_iniciativa4 = AvanceIniciativa.create(vars)  
+    end
+    
+    
     @actividades = Actividad.find(:all)
     if @actividades && @actividades.empty?
       vars = {

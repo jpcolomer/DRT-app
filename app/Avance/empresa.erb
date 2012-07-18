@@ -1,7 +1,7 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Avances por &aacute;rea</h1>
+    <h1>Avances por empresa</h1>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Home
     </a>
@@ -12,7 +12,7 @@
 
   <div data-role="content">
     <ul data-role="listview">
-      <li><a href="<%= url_for :action => :lista_areas, :query => {:back_id => @area.object} %>">Area <span class="right-li fuente-gris"><%= @area.nombre %></span></a></li>
+      <li><a href="<%= url_for :action => :lista_empresas, :query => {:back_id => @empresa.object} %>">Empresa <span class="right-li fuente-gris"><%= @empresa.nombre %></span></a></li>
     </ul>
     <div class="elemento-lista-container fix-ul-top-margin-border"> 
       <div class="elemento-lista-left-container fix-ul-top-innerdiv-margin">Tipo de datos</div>
@@ -25,13 +25,9 @@
       <div class="dotacion-efecto efecto fuente-gris">Efecto nuevos ingresos-egresos <span class="dato"><%= @dotacion_efectos[:nuevos_ingresos_egresos] %></span><span class="<%= get_color_cuadro(@p_ingr_egre) %> to-max-right cuadro-efecto fuente-85"><%= @p_ingr_egre %>%</span></div>
       <div class="dotacion-efecto">Dotaci&oacute;n actual <span class="dato"><%= @dotacion_efectos[:dotacion_actual] %></span><span class="<%= get_color_cuadro(@p_avance) %> to-max-right cuadro-efecto fuente-85"><%= @p_avance %>%</span></div>
     </div>
-    <div class="fix-margin fix-padding border-bottom vertical-middle-container">
-      <div class="vertical-middle">KPI&#39;s</div>
-    </div>
     <div class="fix-margin fix-padding">
-      <div class="dotacion-efecto">Gesti&oacute;n dot. / Compromiso <span class="fuente-gris fuente-70 razon-kpi"><%= "#{@dotacion_efectos[:gestion_dotacional].abs} / #{@area.compromiso_reduccion}" %></span><span class="avance-kpi fuente-85 fix-top-dotacion-efecto"><%= "#{@avance_g_dot_compromiso}" %>%</span><span class="to-max-right cuadro-efecto cuadro-pequeno fix-top-dotacion-efecto <%= get_color_from_percentage(@avance_g_dot_compromiso) %>"></span></div>
-      <div class="dotacion-efecto">Inic. realizadas / Compromiso <span class="fuente-gris fuente-70 razon-kpi"><%= "#{@iniciativas_avance[:iniciativas_realizadas].abs} / #{@area.compromiso_iniciativas}" %></span><span class="avance-kpi fuente-85 fix-top-dotacion-efecto"><%= "#{@avance_iniciativas_compromiso}" %>%</span><span class="to-max-right cuadro-efecto cuadro-pequeno fix-top-dotacion-efecto <%= get_color_from_percentage(@avance_iniciativas_compromiso) %>"></span></div>
-      <div class="dotacion-efecto">Compromiso / Dot. base <span class="fuente-gris fuente-70 razon-kpi"><%= "#{@area.compromiso_reduccion} / #{@dotacion_efectos[:dotacion_base]}" %></span><span class="avance-kpi fuente-85 fix-top-dotacion-efecto"><%= "#{@compromiso_dot_base}" %>%</span><span class="to-max-right cuadro-efecto cuadro-pequeno fix-top-dotacion-efecto <%= get_color_from_percentage(@compromiso_dot_base) %>"></span></div>
+      <div class="dotacion-efecto">N&deg; iniciativas comprometidas <span class="to-max-right">1</span></div>
+      <div class="dotacion-efecto">Responsable <span class="to-max-right"><%= @empresa.responsable %></span></div>
     </div>  
     
   </div>
