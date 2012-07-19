@@ -16,13 +16,32 @@ class Riesgo
     [x,y]
   end
   
-  def get_color
-    if (1 + self.probabilidad.to_f/100)*(1+self.impacto.to_f/100)-1 < 0.3334
-      return '#14b314'
-    elsif (1 + self.probabilidad.to_f/100)*(1+self.impacto.to_f/100)-1 < 0.6667
-      return '#f1b30a'
+  def get_level_probabilidad
+    if self.probabilidad.to_i <= 33
+      return "baja"
+    elsif self.probabilidad.to_i < 66
+      return "media"
     else
+      return "alta"
+    end
+  end  
+  
+  def get_level_impacto
+    if self.impacto.to_i <= 33
+      return "bajo"
+    elsif self.impacto.to_i < 66
+      return "medio"
+    else
+      return "alto"
+    end
+  end
+  def get_color
+    if (self.probabilidad.to_i <= 66 && self.impacto.to_i <= 33) || (self.probabilidad.to_i <= 33 && self.impacto.to_i <= 66)
+      return '#14b314'
+    elsif (self.probabilidad.to_i >= 33 && self.impacto.to_i >= 66) || (self.probabilidad.to_i >= 66 && self.impacto.to_i >= 33)
       return '#b10f0f'
+    else
+      return '#f1b30a'
     end
   end
   

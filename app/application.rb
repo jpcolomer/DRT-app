@@ -203,7 +203,13 @@ class AppApplication < Rho::RhoApplication
         "descripcion" => "descripcion R002",
       }
       @riesgo2 = Riesgo.create(vars)   
-      
+      vars = {
+        "nemo" => "R003",
+        "probabilidad" => "20",
+        "impacto" => "30",
+        "descripcion" => "descripcion R002",
+      }
+      @riesgo3 = Riesgo.create(vars)        
     end
 
     @planes_contingencia = PlanContingencia.find(:all)

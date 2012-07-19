@@ -1,9 +1,10 @@
 require 'rho/rhocontroller'
 require 'helpers/browser_helper'
+require 'helpers/general_helper'
 
 class RiesgoController < Rho::RhoController
   include BrowserHelper
-
+  include GeneralHelper
   # GET /Riesgo
   def index
     @riesgos = Riesgo.find(:all)

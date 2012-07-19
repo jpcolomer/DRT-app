@@ -15,12 +15,12 @@
     <div class="prob-impacto-container">
         <div class="prob-container">
           <div class="prob">
-            Probabilidad <span class="nivel fuente-gris nivel-left">alta<span class="cuadro rojo"></span></span>
+            Probabilidad <span class="nivel fuente-gris nivel-left"><%= @riesgo.get_level_probabilidad %><span class="cuadro <%= get_color_from_percentage(100 - @riesgo.probabilidad.to_i) %>"></span></span>
           </div>
         </div>
         <div class="impacto-container">
           <div class="impacto">
-            Impacto <span class="nivel fuente-gris nivel-right">alto<span class="cuadro rojo"></span></span>
+            Impacto <span class="nivel fuente-gris nivel-right"><%= @riesgo.get_level_impacto %><span class="cuadro <%= get_color_from_percentage(100 - @riesgo.impacto.to_i) %>"></span></span>
           </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
     </div>
     
     <div class="planes-cont-container">
-      <header><a href="<%= url_for :controller => :PlanContingencia, :action => :new, :query => {:riesgo_id => @riesgo.object} %>">Planes de contingencia</a></header>
+      <header>Planes de contingencia</header>
       <% @planes_contingencia.each do |plan_contingencia| %>
         <p class="fuente-gris"><%= plan_contingencia.descripcion %></p>
       <% end %> 
