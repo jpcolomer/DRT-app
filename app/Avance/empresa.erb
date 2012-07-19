@@ -26,7 +26,7 @@
       <div class="dotacion-efecto">Dotaci&oacute;n actual <span class="dato"><%= @dotacion_efectos[:dotacion_actual] %></span><span class="<%= get_color_cuadro(@p_avance) %> to-max-right cuadro-efecto fuente-85"><%= @p_avance %>%</span></div>
     </div>
     <div class="fix-margin fix-padding">
-      <div class="dotacion-efecto">N&deg; iniciativas comprometidas <span class="to-max-right">1</span></div>
+      <div class="dotacion-efecto">N&deg; iniciativas comprometidas <span class="to-max-right"><%= @iniciativas_comprometidas %></span></div>
       <div class="dotacion-efecto">Responsable <span class="to-max-right"><%= @empresa.responsable %></span></div>
     </div>  
     

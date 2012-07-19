@@ -132,6 +132,12 @@ class AppApplication < Rho::RhoApplication
         "compromiso" => "40",
       }
       @iniciativa2 = Iniciativa.create(vars)
+      vars = {
+        "contrato_id" => @contrato2.object,
+        "fecha" => "01-05-2012",
+        "compromiso" => "30",
+      }
+      @iniciativa3 = Iniciativa.create(vars)
     end
     
     @avance_iniciativas = AvanceIniciativa.find(:all)
@@ -181,6 +187,39 @@ class AppApplication < Rho::RhoApplication
       Actividad.create(vars)
     end
     
+    @riesgos = Riesgo.find(:all)
+    if @riesgos && @riesgos.empty?
+      vars = {
+        "nemo" => "R001",
+        "probabilidad" => "75",
+        "impacto" => "30",
+        "descripcion" => "descripcion R001",
+      }
+      @riesgo1 = Riesgo.create(vars)
+      vars = {
+        "nemo" => "R002",
+        "probabilidad" => "35",
+        "impacto" => "80",
+        "descripcion" => "descripcion R002",
+      }
+      @riesgo2 = Riesgo.create(vars)   
+      
+    end
+
+    @planes_contingencia = PlanContingencia.find(:all)
+    if @planes_contingencia && @planes_contingencia.empty?
+      vars = {
+        "riesgo_id" => @riesgo1.object,
+        "descripcion" => "descripcion plan de contingencia R001",
+      }
+      PlanContingencia.create(vars)
+      vars = {
+        "riesgo_id" => @riesgo2.object,
+        "descripcion" => "descripcion plan de contingencia R002",
+      }
+      PlanContingencia.create(vars)  
+      
+    end    
   end
   
   def pluralize(word,nro)

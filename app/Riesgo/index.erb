@@ -33,7 +33,7 @@
                   <div class="cuadrado-line line-horizontal line-horizontal-low"></div>
                   <div class="cuadrado-line line-horizontal line-horizontal-med"></div>
                   <% @riesgos.each do |riesgo| %>
-                    <%= riesgo.draw('#b10f0f', url_for(:action => :show, :id => riesgo.object)) %>
+                    <%= riesgo.draw(url_for(:action => :show, :id => riesgo.object)) %>
                   <% end %>
                 </div>
             </div> 

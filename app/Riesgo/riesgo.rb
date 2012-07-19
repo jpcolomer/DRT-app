@@ -16,7 +16,18 @@ class Riesgo
     [x,y]
   end
   
-  def draw(bkg_color = '#fff', url = '\#')
+  def get_color
+    if (1 + self.probabilidad.to_f/100)*(1+self.impacto.to_f/100)-1 < 0.3334
+      return '#14b314'
+    elsif (1 + self.probabilidad.to_f/100)*(1+self.impacto.to_f/100)-1 < 0.6667
+      return '#f1b30a'
+    else
+      return '#b10f0f'
+    end
+  end
+  
+  def draw(url = '\#')
+    bkg_color = get_color
     x,y = calculate_xy
     html = "<div id=\"#{self.nemo}\" style=\"position: absolute; top: #{y}%; left: #{x}%\">
             <a href=\"#{url}\" style=\"background: #{bkg_color}\">
