@@ -89,7 +89,7 @@ module AvanceHelper
       fecha_base = fechas.min
       fecha_ultima = fechas.max
       dotacion_base = dotaciones.select{|x| x.get_date === fecha_base}.map{|x| x.empleados.to_i}.reduce(:+)
-      dotacion_actual = dotaciones.select{|x| x.get_date === fecha_ultima}.map{|x| x.empleados.to_i}.reduce(:+)
+      
       recategorizacion = 0
       gestion_dotacional = 0
       nuevos_ingresos_egresos = 0
@@ -100,7 +100,8 @@ module AvanceHelper
           gestion_dotacional += dotacion.gestion_dotacional.to_i
           nuevos_ingresos_egresos += dotacion.nuevos_ingresos_egresos.to_i
         end
-      end    
+      end
+      dotacion_actual = dotacion_base + recategorizacion + gestion_dotacional + nuevos_ingresos_egresos
       return {:fecha_base => fecha_base.strftime('%d-%m-%Y'), :fecha_ultima => fecha_ultima.strftime('%d-%m-%Y'), :dotacion_base => dotacion_base, :dotacion_actual => dotacion_actual,:recategorizacion => recategorizacion, :gestion_dotacional => gestion_dotacional, :nuevos_ingresos_egresos => nuevos_ingresos_egresos}
     else
       return {:fecha_base => Date.today.strftime('%d-%m-%Y'), :fecha_ultima => Date.today.strftime('%d-%m-%Y'), :dotacion_base => -100, :dotacion_actual => -100,:recategorizacion => 0, :gestion_dotacional => 0, :nuevos_ingresos_egresos => 0}

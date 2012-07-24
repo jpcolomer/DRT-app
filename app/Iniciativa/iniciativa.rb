@@ -5,10 +5,10 @@ class Iniciativa
   include Rhom::PropertyBag
 
   # Uncomment the following line to enable sync with Iniciativa.
-  # enable :sync
+   enable :sync
 
   #add model specifc code here
-  
+  belongs_to :contrato_id, 'Contrato'
   def get_avance
     avances = AvanceIniciativa.find(
       :all, 

@@ -4,7 +4,7 @@ class PlanContingencia
   include Rhom::PropertyBag
 
   # Uncomment the following line to enable sync with PlanContingencia.
-  # enable :sync
+   enable :sync
 
   #add model specifc code here
   belongs_to :riesgo_id, 'Riesgo'

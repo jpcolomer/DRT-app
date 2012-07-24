@@ -5,7 +5,7 @@ class Empresa
   include Rhom::PropertyBag
   include AvanceHelper
   # Uncomment the following line to enable sync with Empresa.
-  # enable :sync
+   enable :sync
 
   #add model specifc code here
   def get_contratos

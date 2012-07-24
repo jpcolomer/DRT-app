@@ -4,7 +4,7 @@ class Riesgo
   include Rhom::PropertyBag
 
   # Uncomment the following line to enable sync with Riesgo.
-  # enable :sync
+   enable :sync
 
   #add model specifc code here
   SCREEN_WIDTH = 321

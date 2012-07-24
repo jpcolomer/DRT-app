@@ -4,10 +4,11 @@ class Contrato
   include Rhom::PropertyBag
 
   # Uncomment the following line to enable sync with Contrato.
-  # enable :sync
+   enable :sync
 
   #add model specifc code here
-  
+  belongs_to :empresa_id, 'Empresa'
+  belongs_to :area_id, 'Area'
   def get_iniciativas
     Inciativa.find(
       :all, 

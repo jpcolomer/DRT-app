@@ -5,8 +5,8 @@ class Dotacion
   include Rhom::PropertyBag
   include DateHelper
   # Uncomment the following line to enable sync with Dotacion.
-  # enable :sync
+   enable :sync
 
   #add model specifc code here
-  
+  belongs_to :contrato_id, 'Contrato'
 end

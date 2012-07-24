@@ -8,6 +8,8 @@ class ActividadController < Rho::RhoController
 
   # GET /Actividad
   def index
+    puts 'AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII'
+    @actividades = Actividad.find(:all)
     @actividads = Actividad.find(:all).sort {|x,y| x.get_date <=> y.get_date}
     @semanas = @actividads.map {|x| [x.get_date.cweek, x.get_date.month]}
     render :back => '/app'
@@ -32,7 +34,7 @@ class ActividadController < Rho::RhoController
     date = Date.today
     @semanas = get_semanas_actividad(date)
     @avance_mes = (@semanas.map{|semana| semana[:avance]}.reduce(:+)/@semanas.count).to_i unless @semanas.empty?
-    @mes = get_mes_espanol(date.month)
+    @mes = date.strftime('%B')
   end
   
   def get_mes_espanol(month)
@@ -43,7 +45,7 @@ class ActividadController < Rho::RhoController
   def mes_siguiente
     @mes = Date.today.next_month
     @semanas = get_semanas_actividad(@mes)
-    @mes = get_mes_espanol(@mes.month)
+    @mes = @mes.strftime('%B')
     
   end
    

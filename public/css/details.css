@@ -149,6 +149,7 @@
 	float:left;
 }
 
+
 .prob, .impacto {
 	height: 50px;
 	position: absolute;
@@ -156,6 +157,7 @@
 	margin-top: -10px;
 	width: 100%;
 	padding-left: 15px;
+	font-size: 90%;
 }
 
 .impacto {
@@ -167,7 +169,7 @@
 }
 
 .nivel-left {
-	right: 38px;
+	right: 36px;
 }
 
 .nivel-right {
@@ -178,7 +180,7 @@
 	width: 15px;
 	position: absolute;
 	top: 25%;
-	margin-left: 5px;
+	margin-left: 3px;
 }
 
 .rojo {
