@@ -10,6 +10,9 @@
 
   <div data-role="content">
     <ul data-role="listview">
+        <% @sup_areas.each do |area| %>     
+          <li><a href="<%= url_for :action => :area, :query => {:id => area.object, :is_sup_area => true} %>"><%= area.nombre %></a></li>
+        <% end %>
       <% @areas.each do |area| %>     
         <li><a href="<%= url_for :action => :area, :id => area.object %>"><%= area.nombre %></a></li>
       <% end %>

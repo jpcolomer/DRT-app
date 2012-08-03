@@ -1,3 +1,8 @@
+div.ui-page div.ui-header h1.ui-title {
+	overflow: visible;
+}
+
+
 .matrix-content{
 	margin: 0 auto 30px;
 	position: relative;
@@ -179,7 +184,6 @@
 	height: 15px;
 	width: 15px;
 	position: absolute;
-	top: 25%;
 	margin-left: 3px;
 }
 
@@ -292,7 +296,7 @@
 
 .header-sub-title{
 	font-weight: normal;
-	margin: 0 85px 0 0;
+	margin: 0;
 	position: relative;
 	text-align: center;
 	top: -10px;
@@ -301,15 +305,16 @@
 
 .header-avance{
 	position: absolute;
-	right: 20px;
+	right: 40px;
 	height: 20px;
 	margin-top: -10px;
 	top: 50%;
-	margin-right: -85px;
 }
 
 .cuadro-header{
-	right: 20px;
+	right: 17px;
+	top: 50%;
+	margin-top: -9px;
 }
 
 ul li.fuente-li{
@@ -556,4 +561,18 @@ ul.lista-riesgos.ui-listview{
 .to-max-right{
 	position: absolute;
 	right: -5px;
+}
+
+.loader-container{
+	position: absolute;
+	height: 40px;
+	width: 100%;
+	top: 50%;
+	margin-top: -20px;
+	margin-left: -15px;
+	text-align: center;
+}
+
+.acciones-reporte{
+	right: 15px;
 }

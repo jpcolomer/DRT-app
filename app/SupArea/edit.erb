@@ -1,0 +1,36 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @suparea.nombre %></h1>
+    <a href="<%= url_for :action => :show, :id => @suparea.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @suparea.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @suparea.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="suparea[nombre]" class="fieldLabel">Nombre</label>
+            <input type="text" id="suparea[nombre]" name="suparea[nombre]" value="<%= @suparea.nombre %>" <%= placeholder( "Nombre" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="suparea[compromiso_iniciativas]" class="fieldLabel">Compromiso iniciativas</label>
+            <input type="text" id="suparea[compromiso_iniciativas]" name="suparea[compromiso_iniciativas]" value="<%= @suparea.compromiso_iniciativas %>" <%= placeholder( "Compromiso iniciativas" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="suparea[compromiso_reduccion]" class="fieldLabel">Compromiso reduccion</label>
+            <input type="text" id="suparea[compromiso_reduccion]" name="suparea[compromiso_reduccion]" value="<%= @suparea.compromiso_reduccion %>" <%= placeholder( "Compromiso reduccion" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

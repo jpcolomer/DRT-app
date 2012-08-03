@@ -1,0 +1,31 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @session.token %></h1>
+    <a href="<%= url_for :action => :show, :id => @session.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @session.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @session.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="session[token]" class="fieldLabel">Token</label>
+            <input type="text" id="session[token]" name="session[token]" value="<%= @session.token %>" <%= placeholder( "Token" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="session[user_id]" class="fieldLabel">User</label>
+            <input type="text" id="session[user_id]" name="session[user_id]" value="<%= @session.user_id %>" <%= placeholder( "User" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

@@ -5,16 +5,19 @@
     <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
       Atr&aacute;s
     </a>
-    <div class="header-sub-title"><div class="fuente-gris"></div> <div class="header-avance"><%= @avance_mes %>%</div></div>
-    <div class="rojo cuadro cuadro-header"></div>
+    <div class="header-sub-title">
+      <div class="fuente-gris"></div> 
+      <div class="header-avance"><%= @avance_mes %>%</div>
+      <div class="<%= get_color_from_percentage(@avance_mes.to_i) %> cuadro cuadro-header"></div>
+    </div>
   </div>
 
   <div data-role="content">
       <% @semanas.each do |semana| %> 
         <a href="<%= url_for :action => :mostrar_semana, :query => {:semana => semana.to_json} %>">
           <div class="elemento-lista-container">        
-            <div class="elemento-lista-left-container"><div>Semana <%= semana[:nro_semana] %></div><div class="fuente-gris elemento-lista-left-container-sub"><%= semana[:nro_actividades] %> <%= semana[:nro_actividades] > 1 ? 'actividades' : 'actividad' %></div></div>
-            <div class="elemento-lista-avance"><%= semana[:avance].to_i %>% <span class="cuadro cuadro-semana rojo"></span></div>
+            <div class="elemento-lista-left-container"><div>Semana #<%= semana[:nro_semana] %></div><div class="fuente-gris elemento-lista-left-container-sub"><%= semana[:nro_actividades] %> <%= semana[:nro_actividades] > 1 ? 'actividades' : 'actividad' %></div></div>
+            <div class="elemento-lista-avance"><%= semana[:avance].to_i %>% <span class="cuadro cuadro-semana <%= get_color_from_percentage(semana[:avance].to_i) %>"></span></div>
           </div>
         </a> 
       <% end %>

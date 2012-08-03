@@ -1,0 +1,35 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @suparea.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @suparea.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="suparea[nombre]" class="fieldLabel">Nombre</label>
+            <input type="text" id="suparea[nombre]" name="suparea[nombre]" <%= placeholder("Nombre") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="suparea[compromiso_iniciativas]" class="fieldLabel">Compromiso iniciativas</label>
+            <input type="text" id="suparea[compromiso_iniciativas]" name="suparea[compromiso_iniciativas]" <%= placeholder("Compromiso iniciativas") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="suparea[compromiso_reduccion]" class="fieldLabel">Compromiso reduccion</label>
+            <input type="text" id="suparea[compromiso_reduccion]" name="suparea[compromiso_reduccion]" <%= placeholder("Compromiso reduccion") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

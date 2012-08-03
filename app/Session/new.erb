@@ -1,0 +1,30 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @session.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @session.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="session[token]" class="fieldLabel">Token</label>
+            <input type="text" id="session[token]" name="session[token]" <%= placeholder("Token") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="session[user_id]" class="fieldLabel">User</label>
+            <input type="text" id="session[user_id]" name="session[user_id]" <%= placeholder("User") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

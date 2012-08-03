@@ -2,7 +2,7 @@
 
   <div data-role="header" data-position="inline">
     <%= link_to "Back", :action => :show, :id => @reporte.object %>
-    <h1>Edit <%= @reporte.nombre%></h1>
+    <h1>Edit <%= @reporte.file_name%></h1>
     <%= link_to "Delete", :action => :delete, :id => @reporte.object %>
   </div>
 
@@ -12,13 +12,33 @@
       <table>
           
           <tr>
-              <td class="itemLabel">Nombre: </td>
-              <td class="itemValue"><input type="text" name="reporte[nombre]" value="<%= @reporte.nombre %>"/></td>
+              <td class="itemLabel">File name: </td>
+              <td class="itemValue"><input type="text" name="reporte[file_name]" value="<%= @reporte.file_name %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Tipo: </td>
+              <td class="itemValue"><input type="text" name="reporte[tipo]" value="<%= @reporte.tipo %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Fecha: </td>
+              <td class="itemValue"><input type="text" name="reporte[fecha]" value="<%= @reporte.fecha %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Fecha actualizacion: </td>
+              <td class="itemValue"><input type="text" name="reporte[fecha_actualizacion]" value="<%= @reporte.fecha_actualizacion %>"/></td>
           </tr>
           
           <tr>
               <td class="itemLabel">Url: </td>
               <td class="itemValue"><input type="text" name="reporte[url]" value="<%= @reporte.url %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Url device: </td>
+              <td class="itemValue"><input type="text" name="reporte[url_device]" value="<%= @reporte.url_device %>"/></td>
           </tr>
           
       </table>

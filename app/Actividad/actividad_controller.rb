@@ -1,15 +1,18 @@
 require 'rho/rhocontroller'
+require 'rho/rhotabbar'
 require 'helpers/browser_helper'
 require 'date'
 require 'json'
+require 'helpers/general_helper'
 
 class ActividadController < Rho::RhoController
   include BrowserHelper
-
+  include GeneralHelper
   # GET /Actividad
+  def pre_index
+    Rho::NativeTabbar.switch_tab(3) 
+  end
   def index
-    puts 'AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII'
-    @actividades = Actividad.find(:all)
     @actividads = Actividad.find(:all).sort {|x,y| x.get_date <=> y.get_date}
     @semanas = @actividads.map {|x| [x.get_date.cweek, x.get_date.month]}
     render :back => '/app'

@@ -1,10 +1,15 @@
 require 'rho/rhocontroller'
+require 'rho/rhotabbar'
 require 'helpers/browser_helper'
 require 'helpers/general_helper'
 
 class RiesgoController < Rho::RhoController
   include BrowserHelper
   include GeneralHelper
+  
+  def pre_index
+    Rho::NativeTabbar.switch_tab(2)
+  end
   # GET /Riesgo
   def index
     @riesgos = Riesgo.find(:all)

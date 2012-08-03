@@ -4,9 +4,20 @@ class AppApplication < Rho::RhoApplication
   def initialize
     # Tab items are loaded left->right, @tabs[0] is leftmost tab in the tab-bar
     # Super must be called *after* settings @tabs!
-    @tabs = nil
+    @tabs = [
+      { :label => "Inicio", :action => '/app', 
+        :icon => "/public/images/tabbar/53-house.png", :reload => true, :web_bkg_color => 0x000000 }, 
+      { :label => "Avances",  :action => '/app/Avance',  
+        :icon => "/public/images/tabbar/117-todo.png", :reload => true, :web_bkg_color => 0x000000},
+      { :label => "Riesgos",   :action => '/app/Riesgo', 
+        :icon => "/public/images/tabbar/184-warning.png", :reload => true,:web_bkg_color => 0x000000 },
+      { :label => "Actividades",  :action => '/app/Actividad',  
+        :icon => "/public/images/tabbar/83-calendar.png", :reload => true, :web_bkg_color => 0x000000 },
+      { :label => "Reportes",   :action => '/app/Reporte', 
+        :icon => "/public/images/tabbar/33-cabinet.png", :reload => true, :web_bkg_color => 0x000000 }
+    ]
     #To remove default toolbar uncomment next line:
-    #@@toolbar = nil
+    @@toolbar = nil
     super
 
     # Uncomment to set sync notification callback to /app/Settings/sync_notify.

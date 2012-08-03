@@ -11,7 +11,7 @@
       <tr>
       <% @reportes.each do |obj| %>
         
-            <td class="recordLabel"><%= link_to "#{obj.nombre}", :action => :show, :id => obj.object %></td>
+            <td class="recordLabel"><%= link_to "#{obj.file_name}", :action => :show, :id => obj.object %></td>
         
       <% end %>
       </tr>

@@ -1,0 +1,25 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @relacionsupareaarea.area_id %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @relacionsupareaarea.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">AreaId</td>
+        <td class="itemValue"><%= @relacionsupareaarea.area_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">SupAreaId</td>
+        <td class="itemValue"><%= @relacionsupareaarea.sup_area_id%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

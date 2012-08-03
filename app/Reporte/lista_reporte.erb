@@ -1,0 +1,31 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Reportes <%= @tipo %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Atr&aacute;s
+    </a>
+  </div>
+
+  <div data-role="content">
+      
+    <% @reportes.each do |reporte| %> 
+      <div class="elemento-lista-container">        
+        <div class="elemento-lista-left-container"><div>Reporte <%= "#{reporte.get_tipo} #{reporte.get_date.strftime('%d.%m.%Y')}" %> </div><div class="fuente-gris elemento-lista-left-container-sub"><%= reporte.get_date_actualizacion.strftime('%d-%m-%Y') %></div></div>
+        <div class="elemento-lista-avance">
+      <% if reporte.is_downloaded? %>
+        <a href="<%= url_for :action => :open_file, :id => reporte.object %>"><img src="/public/images/file_img.png" alt="open file"></a>
+        <% unless reporte.file_updated? %>  
+          <a href="<%= url_for :action => :download_file, :id => reporte.object %>"><img src="/public/images/update.png"></a>
+        <% end %>
+        <a href="<%= url_for :action => :delete_file, :id => reporte.object %>"><img src="/public/images/bin.png"></a>           
+      <% else %>
+        <a href="<%= url_for :action => :download_file, :id => reporte.object %>"><img src="/public/images/download_img.png" alt="download file"></a>
+      <% end %>
+        </div>
+      </div>
+    <% end %>
+      
+  </div>
+
+</div>

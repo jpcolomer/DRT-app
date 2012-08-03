@@ -2,8 +2,12 @@
 
   <div data-role="header" data-position="inline">
     <h1>Actividades <%= @mes %></h1>
-    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      Home
+    <% if @semana['mes'].to_i <= Date.today.month %>
+      <a href="<%= url_for :action => :mes_actual %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+    <% else %>
+      <a href="<%= url_for :action => :mes_siguiente %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+    <% end %>
+      Atr&aacute;s
     </a>
       <div class="header-sub-title">
         <div class="fuente-gris">
@@ -13,8 +17,8 @@
         <div class="header-avance">
           <%= @semana['avance'].to_i %>%
         </div>
+        <div class="<%= get_color_from_percentage(@semana['avance'].to_i) %> cuadro cuadro-header"></div>
       </div>
-    <div class="rojo cuadro cuadro-header"></div>
         <% else %>
       </div>
         <% end %>

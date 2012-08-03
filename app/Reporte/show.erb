@@ -1,7 +1,7 @@
 <div data-role="page" data-add-back-btn="false">
 
   <div data-role="header" data-position="inline">
-    <h1><%= @reporte.nombre %></h1>
+    <h1><%= @reporte.file_name %></h1>
     <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
       Back
     </a>
@@ -14,13 +14,33 @@
     <ul data-role="listview">
       
           <li>
-            <div class="itemLabel">Nombre</div>
-            <div class="itemValue"><%= @reporte.nombre %></div>
+            <div class="itemLabel">FileName</div>
+            <div class="itemValue"><%= @reporte.file_name %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Tipo</div>
+            <div class="itemValue"><%= @reporte.tipo %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Fecha</div>
+            <div class="itemValue"><%= @reporte.fecha %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">FechaActualizacion</div>
+            <div class="itemValue"><%= @reporte.fecha_actualizacion %></div>
           </li>
       
           <li>
             <div class="itemLabel">Url</div>
             <div class="itemValue"><%= @reporte.url %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">UrlDevice</div>
+            <div class="itemValue"><%= @reporte.url_device %></div>
           </li>
       
     </ul>

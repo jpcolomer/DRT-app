@@ -1,7 +1,7 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Edit <%= @reporte.nombre %></h1>
+    <h1>Edit <%= @reporte.file_name %></h1>
     <a href="<%= url_for :action => :show, :id => @reporte.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
       Cancel
     </a>
@@ -15,13 +15,33 @@
       <input type="hidden" name="id" value="<%= @reporte.object %>"/>
       
           <div data-role="fieldcontain">
-            <label for="reporte[nombre]" class="fieldLabel">Nombre</label>
-            <input type="text" id="reporte[nombre]" name="reporte[nombre]" value="<%= @reporte.nombre %>" <%= placeholder( "Nombre" ) %> />
+            <label for="reporte[file_name]" class="fieldLabel">File name</label>
+            <input type="text" id="reporte[file_name]" name="reporte[file_name]" value="<%= @reporte.file_name %>" <%= placeholder( "File name" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="reporte[tipo]" class="fieldLabel">Tipo</label>
+            <input type="text" id="reporte[tipo]" name="reporte[tipo]" value="<%= @reporte.tipo %>" <%= placeholder( "Tipo" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="reporte[fecha]" class="fieldLabel">Fecha</label>
+            <input type="text" id="reporte[fecha]" name="reporte[fecha]" value="<%= @reporte.fecha %>" <%= placeholder( "Fecha" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="reporte[fecha_actualizacion]" class="fieldLabel">Fecha actualizacion</label>
+            <input type="text" id="reporte[fecha_actualizacion]" name="reporte[fecha_actualizacion]" value="<%= @reporte.fecha_actualizacion %>" <%= placeholder( "Fecha actualizacion" ) %> />
           </div>
       
           <div data-role="fieldcontain">
             <label for="reporte[url]" class="fieldLabel">Url</label>
             <input type="text" id="reporte[url]" name="reporte[url]" value="<%= @reporte.url %>" <%= placeholder( "Url" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="reporte[url_device]" class="fieldLabel">Url device</label>
+            <input type="text" id="reporte[url_device]" name="reporte[url_device]" value="<%= @reporte.url_device %>" <%= placeholder( "Url device" ) %> />
           </div>
       
       <input type="submit" value="Update"/>

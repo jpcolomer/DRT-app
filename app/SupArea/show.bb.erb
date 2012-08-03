@@ -1,0 +1,30 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @suparea.nombre %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @suparea.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Nombre</td>
+        <td class="itemValue"><%= @suparea.nombre%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">CompromisoIniciativas</td>
+        <td class="itemValue"><%= @suparea.compromiso_iniciativas%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">CompromisoReduccion</td>
+        <td class="itemValue"><%= @suparea.compromiso_reduccion%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

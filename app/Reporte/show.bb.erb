@@ -2,7 +2,7 @@
 
   <div data-role="header" data-position="inline">
     <%= link_to "Back", :action => :index %>
-    <h1><%= @reporte.nombre %></h1>
+    <h1><%= @reporte.file_name %></h1>
     <%= link_to "Edit", :action => :edit, :id => @reporte.object %>
   </div>
 
@@ -10,13 +10,33 @@
     <table>
       
       <tr>
-    	<td class="itemLabel">Nombre</td>
-        <td class="itemValue"><%= @reporte.nombre%></td>
+    	<td class="itemLabel">FileName</td>
+        <td class="itemValue"><%= @reporte.file_name%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Tipo</td>
+        <td class="itemValue"><%= @reporte.tipo%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Fecha</td>
+        <td class="itemValue"><%= @reporte.fecha%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">FechaActualizacion</td>
+        <td class="itemValue"><%= @reporte.fecha_actualizacion%></td>
       </tr>
       
       <tr>
     	<td class="itemLabel">Url</td>
         <td class="itemValue"><%= @reporte.url%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">UrlDevice</td>
+        <td class="itemValue"><%= @reporte.url_device%></td>
       </tr>
       
     </table>

@@ -16,10 +16,10 @@
 
   <div data-role="content">
     <ul data-role="listview" class="main-list">
-      <li><a href="<%= url_for :controller => :Avance, :action => :index %>">Avances</a></li>
-      <li><a href="<%= url_for :controller => :Riesgo, :action => :index %>">Riesgos</a></li>
-      <li><a href="<%= url_for :controller => :Actividad, :action => :index %>">Actividades</a></li>
-      <li><a href="<%= url_for :controller => :Reporte, :action => :open_external_pdf %>">Reportes</a></li>
+      <li><a href="<%= url_for :controller => :Avance, :action => :pre_index %>">Avances</a></li>
+      <li><a href="<%= url_for :controller => :Riesgo, :action => :pre_index %>">Riesgos</a></li>
+      <li><a href="<%= url_for :controller => :Actividad, :action => :pre_index %>">Actividades</a></li>
+      <li><a href="<%= url_for :controller => :Reporte, :action => :pre_index %>">Reportes</a></li>
     </ul>
   </div>
 
