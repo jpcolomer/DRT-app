@@ -1,0 +1,20 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Tipo de dato</h1>
+    <a href="<%= url_for :action => @area_empresa, :query => {:dato => @dato} %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Atr&aacute;s
+    </a>
+  </div>
+
+  <div data-role="content">
+  
+    <ul data-role="listview">
+    
+      <li><a href="<%= url_for :action => @area_empresa, :query => {:dato => :emleados} %>">N&deg; empleados</a></li>
+      <li><a href="<%= url_for :action => @area_empresa, :query => {:dato => :fte} %>">FTE</a></li> 
+      
+    </ul>
+  </div>
+
+</div>
