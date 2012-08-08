@@ -1,8 +1,0 @@
-rhodes_path='C:/MotorolaRhoMobileSuite2.0.5/ruby/lib/ruby/gems/1.9.1/gems/rhodes-3.3.3'
-app_version='1.0'
-app_name='DRT'
-reload_app_changes=0
-debug_port=
-debug_host='127.0.0.1'
-platform='iphone'
-ext_path=C:/MotorolaRhoMobileSuite2.0.5/ruby/lib/ruby/gems/1.9.1/gems/rhodes-3.3.3/lib/extensions/json;
