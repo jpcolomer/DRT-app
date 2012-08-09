@@ -26,6 +26,12 @@ class AppApplication < Rho::RhoApplication
     
     System::set_locale('es')
     
+    directory = File.join(Rho::RhoApplication::get_user_path(),'pdfs')
+    Dir.mkdir(directory) unless File.directory?(directory)
+    directory_mensual = File.join(directory,'mensual')
+    Dir.mkdir(directory_mensual) unless File.directory?(directory_mensual)
+    directory_semanal = File.join(directory,'semanal')
+    Dir.mkdir(directory_semanal) unless File.directory?(directory_semanal)
 #    @empresas = Empresa.find(:all)
 #    if @empresas && @empresas.empty?
 #      vars = {

@@ -20,8 +20,10 @@ class Reporte
     end
   end
   
+
   def get_file_location
-    fileName = File.join(Rho::RhoApplication::get_base_app_path, "/public/pdfs/#{self.get_tipo}", "#{self.file_name}.pdf")
+    directory = File.join(Rho::RhoApplication::get_user_path(),'pdfs',"#{self.get_tipo}")
+    fileName = File.join(directory,"#{self.file_name}.pdf")
   end
   
   def is_downloaded?

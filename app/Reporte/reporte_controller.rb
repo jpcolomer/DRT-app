@@ -123,7 +123,7 @@ class ReporteController < Rho::RhoController
     reporte = Reporte.find(@params['id'])
     file_name = reporte.get_file_location
     System.open_url(file_name)
-    tipos = {'false' => 0, 'true' => 1}
-    redirect :controller => :Reporte, :action => :index 
+#    tipos = {'false' => 0, 'true' => 1}
+#    redirect :controller => :Reporte, :action => :index 
   end
 end
