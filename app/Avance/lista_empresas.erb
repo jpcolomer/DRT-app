@@ -2,7 +2,7 @@
 
   <div data-role="header" data-position="inline">
     <h1> Empresas </h1>
-      <a href="<%= url_for :action => :empresa, :id => @params['back_id'] %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      <a href="<%= url_for :action => :empresa, :query => {:id => @params['back_id'], :dato => @dato} %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
         Atr&aacute;s
       </a>
 
@@ -11,7 +11,7 @@
   <div data-role="content">
     <ul data-role="listview">
       <% @empresas.each do |empresa| %>     
-        <li><a href="<%= url_for :action => :empresa, :id => empresa.object %>"><%= empresa.nombre %></a></li>
+        <li><a href="<%= url_for :action => :empresa, :query => {:id => empresa.object, :dato => @dato} %>"><%= empresa.nombre %></a></li>
       <% end %>
     </ul> 
     

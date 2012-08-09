@@ -2,14 +2,15 @@
 
   <div data-role="header" data-position="inline">
     <h1>Avances por empresa</h1>
-    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+    <a href="<%= url_for :action => :index, :query => {:dato => @dato} %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
       Atr&aacute;s
     </a>
   </div>
 
   <div data-role="content">
     <ul data-role="listview">
-      <li><a href="<%= url_for :action => :lista_empresas, :query => {:back_id => @empresa.object} %>">Empresa <span class="right-li fuente-gris"><%= @empresa.nombre %></span></a></li>
+      <li><a href="<%= url_for :action => :lista_empresas, :query => {:back_id => @empresa.object, :dato => @dato} %>">Empresa <span class="right-li fuente-gris"><%= @empresa.nombre %></span></a></li>
+      <li><a href="<%= url_for :action => :tipo_dato, :query => {:area_empresa => :empresa, :dato => @dato} %>">Tipo de datos <span class="right-li fuente-gris"><%= @tipo_dato %></span></a></li>
     </ul>
     <div class="elemento-lista-container fix-ul-top-margin-border"> 
       <div class="elemento-lista-left-container fix-ul-top-innerdiv-margin">Tipo de datos</div>

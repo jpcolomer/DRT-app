@@ -2,7 +2,7 @@
 
   <div data-role="header" data-position="inline">
     <h1>Avances por &aacute;rea</h1>
-    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+    <a href="<%= url_for :action => :index, :query => {:dato => @dato} %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
       Atr&aacute;s
     </a>
 
@@ -10,7 +10,8 @@
 
   <div data-role="content">
     <ul data-role="listview">
-      <li><a href="<%= url_for :action => :lista_areas, :query => {:back_id => @area.object} %>">Area <span class="right-li fuente-gris"><%= @area.nombre %></span></a></li>
+      <li><a href="<%= url_for :action => :lista_areas, :query => {:back_id => @area.object, :dato => @dato} %>">Area <span class="right-li fuente-gris"><%= @area.nombre %></span></a></li>
+      <li><a href="<%= url_for :action => :tipo_dato, :query => {:area_empresa => :area, :dato => @dato} %>">Tipo de datos <span class="right-li fuente-gris"><%= @tipo_dato %></span></a></li>
     </ul>
     <div class="elemento-lista-container fix-ul-top-margin-border"> 
       <div class="elemento-lista-left-container fix-ul-top-innerdiv-margin">Tipo de datos</div>
