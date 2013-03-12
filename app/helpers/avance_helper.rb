@@ -99,7 +99,7 @@ module AvanceHelper
       nuevos_ingresos_egresos = 0
       
       if tipo_dato_hash[:dato] == :empleados
-        dotacion_base = dotaciones.select{|x| x.get_date === fecha_base}.map{|x| x.empleados.to_i}.reduce(:+)
+        dotacion_base = dotaciones.select{|x| x.get_date == fecha_base}.map{|x| x.empleados.to_i}.reduce(:+)
           
           dotaciones.each do |dotacion|
             if dotacion.get_date <= fecha_ultima
@@ -110,7 +110,7 @@ module AvanceHelper
           end
           
       elsif tipo_dato_hash[:dato] == :fte
-        dotacion_base = dotaciones.select{|x| x.get_date === fecha_base}.map{|x| x.fte.to_i}.reduce(:+)
+        dotacion_base = dotaciones.select{|x| x.get_date == fecha_base}.map{|x| x.fte.to_i}.reduce(:+)
          
         dotaciones.each do |dotacion|
           if dotacion.get_date <= fecha_ultima

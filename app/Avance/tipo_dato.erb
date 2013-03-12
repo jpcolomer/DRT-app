@@ -11,8 +11,8 @@
   
     <ul data-role="listview">
     
-      <li><a href="<%= url_for :action => @area_empresa, :query => {:dato => :emleados} %>">N&deg; empleados</a></li>
-      <li><a href="<%= url_for :action => @area_empresa, :query => {:dato => :fte} %>">FTE</a></li> 
+      <li><a href="<%= url_for :action => @area_empresa, :query => {:dato => :empleados, :id => @id} %>">N&deg; empleados</a></li>
+      <li><a href="<%= url_for :action => @area_empresa, :query => {:dato => :fte, :id => @id} %>">FTE</a></li> 
       
     </ul>
   </div>

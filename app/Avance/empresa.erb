@@ -10,7 +10,7 @@
   <div data-role="content">
     <ul data-role="listview">
       <li><a href="<%= url_for :action => :lista_empresas, :query => {:back_id => @empresa.object, :dato => @dato} %>">Empresa <span class="right-li fuente-gris"><%= @empresa.nombre %></span></a></li>
-      <li><a href="<%= url_for :action => :tipo_dato, :query => {:area_empresa => :empresa, :dato => @dato} %>">Tipo de datos <span class="right-li fuente-gris"><%= @tipo_dato %></span></a></li>
+      <li><a href="<%= url_for :action => :tipo_dato, :query => {:area_empresa => :empresa, :dato => @dato, :id => @empresa.object} %>">Tipo de datos <span class="right-li fuente-gris"><%= @tipo_dato %></span></a></li>
     </ul>
     <div class="elemento-lista-container fix-ul-top-margin-border"> 
       <div class="elemento-lista-left-container fix-ul-top-innerdiv-margin">Tipo de datos</div>

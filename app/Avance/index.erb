@@ -12,7 +12,7 @@
     <ul data-role="listview">
     
       <li><a href="<%= url_for :action => :area, :query => {:dato => @dato}%>">Por &aacute;rea</a></li>
-      <li><a href="<%= url_for :action => :empresa %>">Por empresa</a></li> 
+      <li><a href="<%= url_for :action => :empresa, :query => {:dato => @dato} %>">Por empresa</a></li> 
       
     </ul>
   </div>

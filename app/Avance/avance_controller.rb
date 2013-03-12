@@ -23,6 +23,7 @@ class AvanceController < Rho::RhoController
   def tipo_dato    
     @area_empresa = @params['area_empresa'].to_sym
     @dato = @params['dato'].to_sym
+    @id = @params['id']
   end
   
   def get_iniciativas_dotaciones(contratos)
@@ -48,7 +49,7 @@ class AvanceController < Rho::RhoController
     end
     @dato = @params['dato'].to_sym
     @tipo_dato = {:empleados => 'N&deg; personas', :fte => 'FTE'}[@dato]
-    @dotacion_efectos = @area.get_dotaciones_efectos :dato => @params['dato'].to_sym
+    @dotacion_efectos = @area.get_dotaciones_efectos :dato => @dato
     @iniciativas_avance = @area.get_iniciativas_realizadas_avance
     @fecha_base = Date.strptime(@dotacion_efectos[:fecha_base],'%d-%m-%Y').strftime('%b %Y').downcase
     @p_recat = (@dotacion_efectos[:recategorizacion].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
@@ -77,7 +78,7 @@ class AvanceController < Rho::RhoController
     end
     @dato = @params['dato'].to_sym
     @tipo_dato = {:empleados => 'N&deg; personas', :fte => 'FTE'}[@dato]
-    @dotacion_efectos = @empresa.get_dotaciones_efectos
+    @dotacion_efectos = @empresa.get_dotaciones_efectos :dato => @dato
     @iniciativas_comprometidas = @empresa.get_iniciativas.count
     @fecha_base = Date.strptime(@dotacion_efectos[:fecha_base],'%d-%m-%Y').strftime('%b %Y').downcase
     @p_recat = (@dotacion_efectos[:recategorizacion].to_f/@dotacion_efectos[:dotacion_base].to_f*100).to_i
@@ -88,6 +89,7 @@ class AvanceController < Rho::RhoController
   
   def lista_empresas
     @empresas =  Empresa.find(:all)
+    @dato = @params['dato'].to_sym
   end  
   
     
